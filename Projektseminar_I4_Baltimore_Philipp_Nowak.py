@@ -22,6 +22,12 @@ def average_function(my_list):
 
 #Listen definieren
 baltimore_complete = []
+neighborhood_name = []
+crime_10 = []
+crime_11 = []
+crime_12 = []
+crime_13 = []
+crime_14 = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -31,5 +37,41 @@ with open ('Crime___Safety__2010-2014_.csv', 'rU') as csv_input:
 		baltimore_complete.append(row)
 
 
+#Listen füttern: Richtige Spalte der CSV-Grunddatei der richtigen Liste zuordnen
+for entry in baltimore_complete:
+	neighborhood_name.append(entry[0])
+	crime_10.append(entry[1])
+	crime_11.append(entry[2])
+	crime_12.append(entry[3])
+	crime_13.append(entry[4])
+	crime_14.append(entry[5])
+
+
+#Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
+neighborhood_name.pop(0)
+crime_10.pop(0)
+crime_11.pop(0)
+crime_12.pop(0)
+crime_13.pop(0)
+crime_14.pop(0)
+
+
+#Strings in Gleitkommazahl umwandeln, damit mit ihnen gearbeitet werden kann
+crime_10 = map(float, crime_10)
+crime_11 = map(float, crime_11)
+crime_12 = map(float, crime_12)
+crime_13 = map(float, crime_13)
+crime_14 = map(float, crime_14)
+
+
+#Crime-Rate pro Jahr berechnen
+crime_average_2010 = average_function(crime_10)
+crime_average_2011 = average_function(crime_11)
+crime_average_2012 = average_function(crime_12)
+crime_average_2013 = average_function(crime_13)
+crime_average_2014 = average_function(crime_14)
+
+
 #test
-print baltimore_complete
+#print baltimore_complete
+print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
