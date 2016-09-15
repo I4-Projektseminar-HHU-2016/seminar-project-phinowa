@@ -13,13 +13,24 @@ def sum_function(my_list):
 	for i in my_list:
 		list_sum += i
 	return list_sum
-	
+
 #Funktion 2: Durchschnitt berechnen
 def average_function(my_list):
 	list_sum = 0
 	for i in my_list:
 		list_sum += i
 	return list_sum/len(my_list)
+
+#Funktion 3: Top-10 der Bezirke
+def top_10_function(values, neighborhoods):
+	top_10_list = []
+	i = 0
+	while i < 10:  
+		top_10_list.append(max(values)) 
+		top_10_list.append(neighborhoods[values.index(max(values))])
+		values[values.index(max(values))] = 0
+		i = i+1
+	return top_10_list
 
 
 #Listen definieren
@@ -30,6 +41,9 @@ crime_11 = []
 crime_12 = []
 crime_13 = []
 crime_14 = []
+crime_10_top = []
+crime_12_top = []
+crime_14_top = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -47,6 +61,9 @@ for entry in baltimore_complete:
 	crime_12.append(entry[3])
 	crime_13.append(entry[4])
 	crime_14.append(entry[5])
+	crime_10_top.append(entry[1])
+	crime_12_top.append(entry[3])
+	crime_14_top.append(entry[5])
 
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
@@ -56,6 +73,10 @@ crime_11.pop(0)
 crime_12.pop(0)
 crime_13.pop(0)
 crime_14.pop(0)
+crime_10_top.pop(0)
+crime_12_top.pop(0)
+crime_14_top.pop(0)
+
 
 
 #Strings in Gleitkommazahl umwandeln, damit mit ihnen gearbeitet werden kann
@@ -64,6 +85,9 @@ crime_11 = map(float, crime_11)
 crime_12 = map(float, crime_12)
 crime_13 = map(float, crime_13)
 crime_14 = map(float, crime_14)
+crime_10_top = map(float, crime_10_top)
+crime_12_top = map(float, crime_12_top)
+crime_14_top = map(float, crime_14_top)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -74,9 +98,16 @@ crime_average_2013 = average_function(crime_13)
 crime_average_2014 = average_function(crime_14)
 
 
+#Top-10 der Crime-Rate berechnen
+crime_top_10_2010 = top_10_function(crime_10_top, neighborhood_name)
+crime_top_10_2012 = top_10_function(crime_12_top, neighborhood_name)
+crime_top_10_2014 = top_10_function(crime_14_top, neighborhood_name)
+
+
 #test
 #print baltimore_complete
-print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
+#print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
+print crime_top_10_2010, crime_top_10_2012, crime_top_10_2014
 
 
 """
@@ -87,7 +118,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
+#Diagramm Durchschnitt Verbrechenquotient der Jahre 2010-2014 in Baltimore absolut (x-Achse: Jahre)
 #Figur anlegen
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
@@ -104,5 +135,48 @@ ax.set_ylabel("Baltimore Verbrechensrate")
 #Endeinstellungen
 sns.despine(bottom=True)
 plt.tight_layout()
+
+
+#Diagramm Top 10 Verbrechen in 2010 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = [crime_top_10_2010[1], crime_top_10_2010[3], crime_top_10_2010[5], crime_top_10_2010[7], crime_top_10_2010[9], crime_top_10_2010[11], crime_top_10_2010[13], crime_top_10_2010[15], crime_top_10_2010[17], crime_top_10_2010[19]]
+x_values = [crime_top_10_2010[0], crime_top_10_2010[2], crime_top_10_2010[4], crime_top_10_2010[6], crime_top_10_2010[8], crime_top_10_2010[10], crime_top_10_2010[12], crime_top_10_2010[14], crime_top_10_2010[16], crime_top_10_2010[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+ax.set_ylabel("Baltimore Top 10 Verbrechen 2010")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+#Diagramm Top 10 Verbrechen in 2012 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = [crime_top_10_2012[1], crime_top_10_2012[3], crime_top_10_2012[5], crime_top_10_2012[7], crime_top_10_2012[9], crime_top_10_2012[11], crime_top_10_2012[13], crime_top_10_2012[15], crime_top_10_2012[17], crime_top_10_2012[19]]
+x_values = [crime_top_10_2012[0], crime_top_10_2012[2], crime_top_10_2012[4], crime_top_10_2012[6], crime_top_10_2012[8], crime_top_10_2012[10], crime_top_10_2012[12], crime_top_10_2012[14], crime_top_10_2012[16], crime_top_10_2012[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+ax.set_ylabel("Baltimore Top 10 Verbrechen 2012")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+#Diagramm Top 10 Verbrechen in 2014 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = [crime_top_10_2014[1], crime_top_10_2014[3], crime_top_10_2014[5], crime_top_10_2014[7], crime_top_10_2014[9], crime_top_10_2014[11], crime_top_10_2014[13], crime_top_10_2014[15], crime_top_10_2014[17], crime_top_10_2014[19]]
+x_values = [crime_top_10_2014[0], crime_top_10_2014[2], crime_top_10_2014[4], crime_top_10_2014[6], crime_top_10_2014[8], crime_top_10_2014[10], crime_top_10_2014[12], crime_top_10_2014[14], crime_top_10_2014[16], crime_top_10_2014[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+ax.set_ylabel("Baltimore Top 10 Verbrechen 2012")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
 
 plt.show()
