@@ -4,7 +4,9 @@
 import csv
 
 
-#Im Folgenden befinden sich Funktionen, die für die (grafische) Auswertung benötigt werden
+"""
+Im Folgenden befinden sich Funktionen, die für die (grafische) Auswertung benötigt werden
+"""
 #Funktion 1: Summe einer Liste berechnen
 def sum_function(my_list):
 	list_sum = 0
@@ -75,3 +77,32 @@ crime_average_2014 = average_function(crime_14)
 #test
 #print baltimore_complete
 print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
+
+
+"""
+Im Folgenden werden die Diagramme erstellt
+"""
+import numpy as np
+#Seaborn installieren in cmd per "pip install seaborn"
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+#Figur anlegen
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+#X-Labels und Werte definieren
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014]
+
+#Diagramm generieren
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue"])
+ax.set_ylabel("Baltimore Verbrechensrate")
+
+#Endeinstellungen
+sns.despine(bottom=True)
+plt.tight_layout()
+
+plt.show()
