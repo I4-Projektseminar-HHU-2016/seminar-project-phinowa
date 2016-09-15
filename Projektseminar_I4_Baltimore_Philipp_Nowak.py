@@ -119,7 +119,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 #Diagramm Durchschnitt Verbrechenquotient der Jahre 2010-2014 in Baltimore absolut (x-Achse: Jahre)
-#Figur anlegen
+#Diagramm anlegen
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -138,7 +138,7 @@ plt.tight_layout()
 
 
 #Diagramm Top 10 Verbrechen in 2010 (x-Achse: Bezirke)
-f, ax = plt.subplots(1, 1, figsize=(8, 6))
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_top_10_2010[1], crime_top_10_2010[3], crime_top_10_2010[5], crime_top_10_2010[7], crime_top_10_2010[9], crime_top_10_2010[11], crime_top_10_2010[13], crime_top_10_2010[15], crime_top_10_2010[17], crime_top_10_2010[19]]
 x_values = [crime_top_10_2010[0], crime_top_10_2010[2], crime_top_10_2010[4], crime_top_10_2010[6], crime_top_10_2010[8], crime_top_10_2010[10], crime_top_10_2010[12], crime_top_10_2010[14], crime_top_10_2010[16], crime_top_10_2010[18]]
@@ -146,13 +146,14 @@ x_values = [crime_top_10_2010[0], crime_top_10_2010[2], crime_top_10_2010[4], cr
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
 ax.set_ylabel("Baltimore Top 10 Verbrechen 2010")
+ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.tight_layout()
+plt.xticks(rotation= 16)
 
 
 #Diagramm Top 10 Verbrechen in 2012 (x-Achse: Bezirke)
-f, ax = plt.subplots(1, 1, figsize=(8, 6))
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_top_10_2012[1], crime_top_10_2012[3], crime_top_10_2012[5], crime_top_10_2012[7], crime_top_10_2012[9], crime_top_10_2012[11], crime_top_10_2012[13], crime_top_10_2012[15], crime_top_10_2012[17], crime_top_10_2012[19]]
 x_values = [crime_top_10_2012[0], crime_top_10_2012[2], crime_top_10_2012[4], crime_top_10_2012[6], crime_top_10_2012[8], crime_top_10_2012[10], crime_top_10_2012[12], crime_top_10_2012[14], crime_top_10_2012[16], crime_top_10_2012[18]]
@@ -160,13 +161,14 @@ x_values = [crime_top_10_2012[0], crime_top_10_2012[2], crime_top_10_2012[4], cr
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
 ax.set_ylabel("Baltimore Top 10 Verbrechen 2012")
+ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.tight_layout()
+plt.xticks(rotation= 16)
 
 
 #Diagramm Top 10 Verbrechen in 2014 (x-Achse: Bezirke)
-f, ax = plt.subplots(1, 1, figsize=(8, 6))
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_top_10_2014[1], crime_top_10_2014[3], crime_top_10_2014[5], crime_top_10_2014[7], crime_top_10_2014[9], crime_top_10_2014[11], crime_top_10_2014[13], crime_top_10_2014[15], crime_top_10_2014[17], crime_top_10_2014[19]]
 x_values = [crime_top_10_2014[0], crime_top_10_2014[2], crime_top_10_2014[4], crime_top_10_2014[6], crime_top_10_2014[8], crime_top_10_2014[10], crime_top_10_2014[12], crime_top_10_2014[14], crime_top_10_2014[16], crime_top_10_2014[18]]
@@ -174,9 +176,10 @@ x_values = [crime_top_10_2014[0], crime_top_10_2014[2], crime_top_10_2014[4], cr
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
 ax.set_ylabel("Baltimore Top 10 Verbrechen 2012")
+ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.tight_layout()
+plt.xticks(rotation= 16)
 
 
 plt.show()
