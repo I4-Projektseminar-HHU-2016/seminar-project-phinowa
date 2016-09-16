@@ -7,25 +7,18 @@ import csv
 """
 Im Folgenden befinden sich Funktionen, die für die (grafische) Auswertung benötigt werden
 """
-#Funktion 1: Summe einer Liste berechnen
-def sum_function(my_list):
-	list_sum = 0
-	for i in my_list:
-		list_sum += i
-	return list_sum
-
-#Funktion 2: Durchschnitt berechnen
+#Funktion 1: Durchschnitt berechnen
 def average_function(my_list):
 	list_sum = 0
 	for i in my_list:
 		list_sum += i
 	return list_sum/len(my_list)
 
-#Funktion 3: Top-10 der Bezirke
+#Funktion 2: Top-10 der Bezirke
 def top_10_function(values, neighborhoods):
 	top_10_list = []
 	i = 0
-	while i < 10:  
+	while i < 10:
 		top_10_list.append(max(values)) 
 		top_10_list.append(neighborhoods[values.index(max(values))])
 		values[values.index(max(values))] = 0
