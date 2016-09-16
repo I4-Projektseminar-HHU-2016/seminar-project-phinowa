@@ -197,7 +197,7 @@ x_values = [crime_top_10_2014[0], crime_top_10_2014[2], crime_top_10_2014[4], cr
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
-ax.set_ylabel("Baltimore Top 10 Verbrechen 2012")
+ax.set_ylabel("Baltimore Top 10 Verbrechen 2014")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
