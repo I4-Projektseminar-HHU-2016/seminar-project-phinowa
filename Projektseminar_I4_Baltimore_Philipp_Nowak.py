@@ -57,6 +57,14 @@ crime_11_flop = []
 crime_13_flop = []
 viol_14_top = []
 viol_14_flop = []
+viol_10_top = []
+viol_11_top = []
+viol_12_top = []
+viol_13_top = []
+viol_10_flop = []
+viol_11_flop = []
+viol_12_flop = []
+viol_13_flop = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -86,6 +94,14 @@ for entry in baltimore_complete:
 	crime_13_flop.append(entry[4])
 	viol_14_top.append(entry[10])
 	viol_14_flop.append(entry[10])
+	viol_10_top.append(entry[6])
+	viol_11_top.append(entry[7])
+	viol_12_top.append(entry[8])
+	viol_13_top.append(entry[9])
+	viol_10_flop.append(entry[6])
+	viol_11_flop.append(entry[7])
+	viol_12_flop.append(entry[8])
+	viol_13_flop.append(entry[9])
 
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
@@ -107,6 +123,14 @@ crime_11_flop.pop(0)
 crime_13_flop.pop(0)
 viol_14_top.pop(0)
 viol_14_flop.pop(0)
+viol_10_top.pop(0)
+viol_11_top.pop(0)
+viol_12_top.pop(0)
+viol_13_top.pop(0)
+viol_10_flop.pop(0)
+viol_11_flop.pop(0)
+viol_12_flop.pop(0)
+viol_13_flop.pop(0)
 
 
 #Namen in Neighborhoods kürzen, damit Diagramme lesbarer werden
@@ -132,6 +156,14 @@ crime_11_flop = map(float, crime_11_flop)
 crime_13_flop = map(float, crime_13_flop)
 viol_14_top = map(float, viol_14_top)
 viol_14_flop = map(float, viol_14_flop)
+viol_10_top = map(float, viol_10_top)
+viol_11_top = map(float, viol_11_top)
+viol_12_top = map(float, viol_12_top)
+viol_13_top = map(float, viol_13_top)
+viol_10_flop = map(float, viol_10_flop)
+viol_11_flop = map(float, viol_11_flop)
+viol_12_flop = map(float, viol_12_flop)
+viol_13_flop = map(float, viol_13_flop)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -163,9 +195,21 @@ crime_flop_1 = crime_flop_10_2010[0], crime_flop_10_2011[0], crime_flop_10_2012[
 
 #Top-10 der Violence-Rate berechnen
 viol_top_10_2014 = top_10_function(viol_14_top, neighborhood_name)
+viol_top_10_2010 = top_10_function(viol_10_top, neighborhood_name)
+viol_top_10_2011 = top_10_function(viol_11_top, neighborhood_name)
+viol_top_10_2012 = top_10_function(viol_12_top, neighborhood_name)
+viol_top_10_2013 = top_10_function(viol_13_top, neighborhood_name)
 
 #Flop-10 der Violence-Rate berechnen
 viol_flop_10_2014 = flop_10_function(viol_14_flop, neighborhood_name)
+viol_flop_10_2010 = flop_10_function(viol_10_flop, neighborhood_name)
+viol_flop_10_2011 = flop_10_function(viol_11_flop, neighborhood_name)
+viol_flop_10_2012 = flop_10_function(viol_12_flop, neighborhood_name)
+viol_flop_10_2013 = flop_10_function(viol_13_flop, neighborhood_name)
+
+#Top & Flop Nr. 1 der Violence-Rate aus den Jahren 2010 bis 2014
+viol_top_1 = viol_top_10_2010[0], viol_top_10_2011[0], viol_top_10_2012[0], viol_top_10_2013[0], viol_top_10_2014[0]
+viol_flop_1 = viol_flop_10_2010[0], viol_flop_10_2011[0], viol_flop_10_2012[0], viol_flop_10_2013[0], viol_flop_10_2014[0]
 
 
 #test
@@ -177,8 +221,9 @@ viol_flop_10_2014 = flop_10_function(viol_14_flop, neighborhood_name)
 #print viol_top_10_2014, viol_flop_10_2014
 #print neighborhood_name
 
-
-#Im Folgenden werden die Diagramme erstellt
+"""
+Im Folgenden werden die Diagramme erstellt
+"""
 import numpy as np
 #Seaborn installieren in cmd per "pip install seaborn"
 import seaborn as sns
@@ -360,6 +405,36 @@ ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
 plt.xticks(rotation= 14)
+
+
+#Diagramm Top 1 Gewalt von 2010 bis 2014 (x-Achse: Jahre)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [viol_top_1[0], viol_top_1[1], viol_top_1[2], viol_top_1[3], viol_top_1[4]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#0000CD", "#0000E6", "#0000FF", "#3333FF", "#6666FF"])
+ax.set_xlabel("Baltimore Veraenderung von Top-Gewalt ueber die Jahre")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+#Diagramm Flop 1 Gewalt von 2010 bis 2014 (x-Achse: Jahre)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [viol_flop_1[0], viol_flop_1[1], viol_flop_1[2], viol_flop_1[3], viol_flop_1[4]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#0000CD", "#0000E6", "#0000FF", "#3333FF", "#6666FF"])
+ax.set_xlabel("Baltimore Veraenderung von Flop-Gewalt ueber die Jahre")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
 
 
 plt.show()
