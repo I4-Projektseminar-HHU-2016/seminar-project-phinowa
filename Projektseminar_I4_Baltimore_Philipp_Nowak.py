@@ -65,6 +65,8 @@ viol_10_flop = []
 viol_11_flop = []
 viol_12_flop = []
 viol_13_flop = []
+prop_14_top = []
+prop_14_flop = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -102,6 +104,8 @@ for entry in baltimore_complete:
 	viol_11_flop.append(entry[7])
 	viol_12_flop.append(entry[8])
 	viol_13_flop.append(entry[9])
+	prop_14_top.append(entry[14])
+	prop_14_flop.append(entry[14])
 
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
@@ -131,6 +135,8 @@ viol_10_flop.pop(0)
 viol_11_flop.pop(0)
 viol_12_flop.pop(0)
 viol_13_flop.pop(0)
+prop_14_top.pop(0)
+prop_14_flop.pop(0)
 
 
 #Namen in Neighborhoods kürzen, damit Diagramme lesbarer werden
@@ -164,6 +170,8 @@ viol_10_flop = map(float, viol_10_flop)
 viol_11_flop = map(float, viol_11_flop)
 viol_12_flop = map(float, viol_12_flop)
 viol_13_flop = map(float, viol_13_flop)
+prop_14_top = map(float, prop_14_top)
+prop_14_flop = map(float, prop_14_flop)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -210,6 +218,12 @@ viol_flop_10_2013 = flop_10_function(viol_13_flop, neighborhood_name)
 #Top & Flop Nr. 1 der Violence-Rate aus den Jahren 2010 bis 2014
 viol_top_1 = viol_top_10_2010[0], viol_top_10_2011[0], viol_top_10_2012[0], viol_top_10_2013[0], viol_top_10_2014[0]
 viol_flop_1 = viol_flop_10_2010[0], viol_flop_10_2011[0], viol_flop_10_2012[0], viol_flop_10_2013[0], viol_flop_10_2014[0]
+
+#Top-10 der Property-Crime-Rate berechnen
+prop_top_10_2014 = top_10_function(prop_14_top, neighborhood_name)
+
+#Flop-10 der Property-Crime-Rate berechnen
+prop_flop_10_2014 = flop_10_function(prop_14_flop, neighborhood_name)
 
 
 #test
@@ -435,6 +449,39 @@ ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
+
+
+#Diagramm Top 10 Diebstahl in 2014 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
+
+x_labels = [prop_top_10_2014[1], prop_top_10_2014[3], prop_top_10_2014[5], prop_top_10_2014[7], prop_top_10_2014[9], prop_top_10_2014[11], prop_top_10_2014[13], prop_top_10_2014[15], prop_top_10_2014[17], prop_top_10_2014[19]]
+x_values = [prop_top_10_2014[0], prop_top_10_2014[2], prop_top_10_2014[4], prop_top_10_2014[6], prop_top_10_2014[8], prop_top_10_2014[10], prop_top_10_2014[12], prop_top_10_2014[14], prop_top_10_2014[16], prop_top_10_2014[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#66FF66"])
+ax.set_xlabel("Baltimore Top 10 Diebstahl 2014")
+ax.xaxis.set_label_position("top")
+ax.set_xticklabels(x_labels, fontsize = 10)
+
+sns.despine(bottom=True)
+plt.xticks(rotation= 14)
+
+
+#Diagramm Flop 10 Diebstahl in 2014 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
+
+x_labels = [prop_flop_10_2014[1], prop_flop_10_2014[3], prop_flop_10_2014[5], prop_flop_10_2014[7], prop_flop_10_2014[9], prop_flop_10_2014[11], prop_flop_10_2014[13], prop_flop_10_2014[15], prop_flop_10_2014[17], prop_flop_10_2014[19]]
+x_values = [prop_flop_10_2014[0], prop_flop_10_2014[2], prop_flop_10_2014[4], prop_flop_10_2014[6], prop_flop_10_2014[8], prop_flop_10_2014[10], prop_flop_10_2014[12], prop_flop_10_2014[14], prop_flop_10_2014[16], prop_flop_10_2014[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#66FF66"])
+ax.set_xlabel("Baltimore Flop 10 Diebstahl 2014")
+ax.xaxis.set_label_position("top")
+ax.set_xticklabels(x_labels, fontsize = 10)
+
+sns.despine(bottom=True)
+plt.xticks(rotation= 14)
+
 
 
 plt.show()
