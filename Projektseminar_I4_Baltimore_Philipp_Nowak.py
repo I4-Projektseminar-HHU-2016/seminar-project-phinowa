@@ -55,6 +55,8 @@ crime_11_top = []
 crime_13_top = []
 crime_11_flop = []
 crime_13_flop = []
+viol_14_top = []
+viol_14_flop = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -82,6 +84,8 @@ for entry in baltimore_complete:
 	crime_13_top.append(entry[4])
 	crime_11_flop.append(entry[2])
 	crime_13_flop.append(entry[4])
+	viol_14_top.append(entry[10])
+	viol_14_flop.append(entry[10])
 
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
@@ -101,6 +105,8 @@ crime_11_top.pop(0)
 crime_13_top.pop(0)
 crime_11_flop.pop(0)
 crime_13_flop.pop(0)
+viol_14_top.pop(0)
+viol_14_flop.pop(0)
 
 
 
@@ -120,6 +126,8 @@ crime_11_top = map(float, crime_11_top)
 crime_13_top = map(float, crime_13_top)
 crime_11_flop = map(float, crime_11_flop)
 crime_13_flop = map(float, crime_13_flop)
+viol_14_top = map(float, viol_14_top)
+viol_14_flop = map(float, viol_14_flop)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -145,11 +153,15 @@ crime_flop_10_2014 = flop_10_function(crime_14_flop, neighborhood_name)
 crime_flop_10_2011 = flop_10_function(crime_11_flop, neighborhood_name)
 crime_flop_10_2013 = flop_10_function(crime_13_flop, neighborhood_name)
 
-#Top Nr. 1 der Crime-Rate aus den Jahren 2010 bis 2014
+#Top & Flop Nr. 1 der Crime-Rate aus den Jahren 2010 bis 2014
 crime_top_1 = crime_top_10_2010[0], crime_top_10_2011[0], crime_top_10_2012[0], crime_top_10_2013[0], crime_top_10_2014[0]
-
-#Flop Nr. 1 der Crime-Rate aus den Jahren 2010 bis 2014
 crime_flop_1 = crime_flop_10_2010[0], crime_flop_10_2011[0], crime_flop_10_2012[0], crime_flop_10_2013[0], crime_flop_10_2014[0]
+
+#Top-10 der Violence-Rate berechnen
+viol_top_10_2014 = top_10_function(viol_14_top, neighborhood_name)
+
+#Flop-10 der Violence-Rate berechnen
+viol_flop_10_2014 = flop_10_function(viol_14_flop, neighborhood_name)
 
 
 #test
@@ -157,7 +169,8 @@ crime_flop_1 = crime_flop_10_2010[0], crime_flop_10_2011[0], crime_flop_10_2012[
 #print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
 #print crime_top_10_2010, crime_top_10_2012, crime_top_10_2014
 #print crime_flop_10_2010, crime_flop_10_2012, crime_flop_10_2014
-print crime_top_1, crime_flop_1
+#print crime_top_1, crime_flop_1
+print viol_top_10_2014, viol_flop_10_2014
 
 
 """
@@ -313,6 +326,37 @@ ax.xaxis.set_label_position("top")
 sns.despine(bottom=True)
 plt.tight_layout()
 
+
+#Diagramm Top 10 Gewalt in 2014 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
+
+x_labels = [viol_top_10_2014[1], viol_top_10_2014[3], viol_top_10_2014[5], viol_top_10_2014[7], viol_top_10_2014[9], viol_top_10_2014[11], viol_top_10_2014[13], viol_top_10_2014[15], viol_top_10_2014[17], viol_top_10_2014[19]]
+x_values = [viol_top_10_2014[0], viol_top_10_2014[2], viol_top_10_2014[4], viol_top_10_2014[6], viol_top_10_2014[8], viol_top_10_2014[10], viol_top_10_2014[12], viol_top_10_2014[14], viol_top_10_2014[16], viol_top_10_2014[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#6666FF"])
+ax.set_xlabel("Baltimore Top 10 Gewalt 2014")
+ax.xaxis.set_label_position("top")
+ax.set_xticklabels(x_labels, fontsize = 10)
+
+sns.despine(bottom=True)
+plt.xticks(rotation= 16)
+
+
+#Diagramm Flop 10 Gewalt in 2014 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
+
+x_labels = [viol_flop_10_2014[1], viol_flop_10_2014[3], viol_flop_10_2014[5], viol_flop_10_2014[7], viol_flop_10_2014[9], viol_flop_10_2014[11], viol_flop_10_2014[13], viol_flop_10_2014[15], viol_flop_10_2014[17], viol_flop_10_2014[19]]
+x_values = [viol_flop_10_2014[0], viol_flop_10_2014[2], viol_flop_10_2014[4], viol_flop_10_2014[6], viol_flop_10_2014[8], viol_flop_10_2014[10], viol_flop_10_2014[12], viol_flop_10_2014[14], viol_flop_10_2014[16], viol_flop_10_2014[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#6666FF"])
+ax.set_xlabel("Baltimore Flop 10 Gewalt 2014")
+ax.xaxis.set_label_position("top")
+ax.set_xticklabels(x_labels, fontsize = 10)
+
+sns.despine(bottom=True)
+plt.xticks(rotation= 16)
 
 
 plt.show()
