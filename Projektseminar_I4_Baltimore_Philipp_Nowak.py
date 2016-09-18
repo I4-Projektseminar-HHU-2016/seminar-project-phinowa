@@ -51,6 +51,10 @@ crime_14_top = []
 crime_10_flop = []
 crime_12_flop = []
 crime_14_flop = []
+crime_11_top = []
+crime_13_top = []
+crime_11_flop = []
+crime_13_flop = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -74,6 +78,10 @@ for entry in baltimore_complete:
 	crime_10_flop.append(entry[1])
 	crime_12_flop.append(entry[3])
 	crime_14_flop.append(entry[5])
+	crime_11_top.append(entry[2])
+	crime_13_top.append(entry[4])
+	crime_11_flop.append(entry[2])
+	crime_13_flop.append(entry[4])
 
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
@@ -89,6 +97,11 @@ crime_14_top.pop(0)
 crime_10_flop.pop(0)
 crime_12_flop.pop(0)
 crime_14_flop.pop(0)
+crime_11_top.pop(0)
+crime_13_top.pop(0)
+crime_11_flop.pop(0)
+crime_13_flop.pop(0)
+
 
 
 #Strings in Gleitkommazahl umwandeln, damit mit ihnen gearbeitet werden kann
@@ -103,6 +116,10 @@ crime_14_top = map(float, crime_14_top)
 crime_10_flop = map(float, crime_10_flop)
 crime_12_flop = map(float, crime_12_flop)
 crime_14_flop = map(float, crime_14_flop)
+crime_11_top = map(float, crime_11_top)
+crime_13_top = map(float, crime_13_top)
+crime_11_flop = map(float, crime_11_flop)
+crime_13_flop = map(float, crime_13_flop)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -117,19 +134,30 @@ crime_average_2014 = average_function(crime_14)
 crime_top_10_2010 = top_10_function(crime_10_top, neighborhood_name)
 crime_top_10_2012 = top_10_function(crime_12_top, neighborhood_name)
 crime_top_10_2014 = top_10_function(crime_14_top, neighborhood_name)
+crime_top_10_2011 = top_10_function(crime_11_top, neighborhood_name)
+crime_top_10_2013 = top_10_function(crime_13_top, neighborhood_name)
 
 
 #Flop-10 der Crime-Rate berechnen
 crime_flop_10_2010 = flop_10_function(crime_10_flop, neighborhood_name)
 crime_flop_10_2012 = flop_10_function(crime_12_flop, neighborhood_name)
 crime_flop_10_2014 = flop_10_function(crime_14_flop, neighborhood_name)
+crime_flop_10_2011 = flop_10_function(crime_11_flop, neighborhood_name)
+crime_flop_10_2013 = flop_10_function(crime_13_flop, neighborhood_name)
+
+#Top Nr. 1 der Crime-Rate aus den Jahren 2010 bis 2014
+crime_top_1 = crime_top_10_2010[0], crime_top_10_2011[0], crime_top_10_2012[0], crime_top_10_2013[0], crime_top_10_2014[0]
+
+#Flop Nr. 1 der Crime-Rate aus den Jahren 2010 bis 2014
+crime_flop_1 = crime_flop_10_2010[0], crime_flop_10_2011[0], crime_flop_10_2012[0], crime_flop_10_2013[0], crime_flop_10_2014[0]
 
 
 #test
 #print baltimore_complete
 #print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
 #print crime_top_10_2010, crime_top_10_2012, crime_top_10_2014
-print crime_flop_10_2010, crime_flop_10_2012, crime_flop_10_2014
+#print crime_flop_10_2010, crime_flop_10_2012, crime_flop_10_2014
+print crime_top_1, crime_flop_1
 
 
 """
@@ -254,6 +282,36 @@ ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
 plt.xticks(rotation= 16)
+
+
+#Diagramm Top 1 Verbrechen von 2010 bis 2014 (x-Achse: Jahre)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [crime_top_1[0], crime_top_1[1], crime_top_1[2], crime_top_1[3], crime_top_1[4]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue"])
+ax.set_xlabel("Baltimore Veraenderung von Top-Verbrechen ueber die Jahre")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+#Diagramm Flop 1 Verbrechen von 2010 bis 2014 (x-Achse: Jahre)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [crime_flop_1[0], crime_flop_1[1], crime_flop_1[2], crime_flop_1[3], crime_flop_1[4]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue"])
+ax.set_xlabel("Baltimore Veraenderung von Flop-Verbrechen ueber die Jahre")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
 
 
 
