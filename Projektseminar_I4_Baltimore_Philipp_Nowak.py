@@ -109,6 +109,10 @@ viol_14_top.pop(0)
 viol_14_flop.pop(0)
 
 
+#Namen in Neighborhoods kürzen, damit Diagramme lesbarer werden
+neighborhood_name = [i.split("/")[0] for i in neighborhood_name]
+neighborhood_name = [i.split("&")[0] for i in neighborhood_name]
+
 
 #Strings in Gleitkommazahl umwandeln, damit mit ihnen gearbeitet werden kann
 crime_10 = map(float, crime_10)
@@ -170,12 +174,11 @@ viol_flop_10_2014 = flop_10_function(viol_14_flop, neighborhood_name)
 #print crime_top_10_2010, crime_top_10_2012, crime_top_10_2014
 #print crime_flop_10_2010, crime_flop_10_2012, crime_flop_10_2014
 #print crime_top_1, crime_flop_1
-print viol_top_10_2014, viol_flop_10_2014
+#print viol_top_10_2014, viol_flop_10_2014
+#print neighborhood_name
 
 
-"""
-Im Folgenden werden die Diagramme erstellt
-"""
+#Im Folgenden werden die Diagramme erstellt
 import numpy as np
 #Seaborn installieren in cmd per "pip install seaborn"
 import seaborn as sns
@@ -214,7 +217,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 #Diagramm Top 10 Verbrechen in 2012 (x-Achse: Bezirke)
@@ -230,7 +233,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 #Diagramm Top 10 Verbrechen in 2014 (x-Achse: Bezirke)
@@ -246,7 +249,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 #Diagramm Flop 10 Verbrechen in 2010 (x-Achse: Bezirke)
@@ -262,7 +265,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 #Diagramm Flop 10 Verbrechen in 2012 (x-Achse: Bezirke)
@@ -278,7 +281,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 #Diagramm Flop 10 Verbrechen in 2014 (x-Achse: Bezirke)
@@ -294,7 +297,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 #Diagramm Top 1 Verbrechen von 2010 bis 2014 (x-Achse: Jahre)
@@ -340,7 +343,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 #Diagramm Flop 10 Gewalt in 2014 (x-Achse: Bezirke)
@@ -356,7 +359,7 @@ ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
-plt.xticks(rotation= 16)
+plt.xticks(rotation= 14)
 
 
 plt.show()
