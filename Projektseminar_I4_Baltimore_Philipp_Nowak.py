@@ -67,6 +67,12 @@ viol_12_flop = []
 viol_13_flop = []
 prop_14_top = []
 prop_14_flop = []
+prop_11_top = []
+prop_12_top = []
+prop_13_top = []
+prop_11_flop = []
+prop_12_flop = []
+prop_13_flop = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -106,6 +112,12 @@ for entry in baltimore_complete:
 	viol_13_flop.append(entry[9])
 	prop_14_top.append(entry[14])
 	prop_14_flop.append(entry[14])
+	prop_11_top.append(entry[11])
+	prop_12_top.append(entry[12])
+	prop_13_top.append(entry[13])
+	prop_11_flop.append(entry[11])
+	prop_12_flop.append(entry[12])
+	prop_13_flop.append(entry[13])
 
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
@@ -137,6 +149,12 @@ viol_12_flop.pop(0)
 viol_13_flop.pop(0)
 prop_14_top.pop(0)
 prop_14_flop.pop(0)
+prop_11_top.pop(0)
+prop_12_top.pop(0)
+prop_13_top.pop(0)
+prop_11_flop.pop(0)
+prop_12_flop.pop(0)
+prop_13_flop.pop(0)
 
 
 #Namen in Neighborhoods kürzen, damit Diagramme lesbarer werden
@@ -172,6 +190,12 @@ viol_12_flop = map(float, viol_12_flop)
 viol_13_flop = map(float, viol_13_flop)
 prop_14_top = map(float, prop_14_top)
 prop_14_flop = map(float, prop_14_flop)
+prop_11_top = map(float, prop_11_top)
+prop_12_top = map(float, prop_12_top)
+prop_13_top = map(float, prop_13_top)
+prop_11_flop = map(float, prop_11_flop)
+prop_12_flop = map(float, prop_12_flop)
+prop_13_flop = map(float, prop_13_flop)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -221,9 +245,19 @@ viol_flop_1 = viol_flop_10_2010[0], viol_flop_10_2011[0], viol_flop_10_2012[0], 
 
 #Top-10 der Property-Crime-Rate berechnen
 prop_top_10_2014 = top_10_function(prop_14_top, neighborhood_name)
+prop_top_10_2011 = top_10_function(prop_11_top, neighborhood_name)
+prop_top_10_2012 = top_10_function(prop_12_top, neighborhood_name)
+prop_top_10_2013 = top_10_function(prop_13_top, neighborhood_name)
 
 #Flop-10 der Property-Crime-Rate berechnen
 prop_flop_10_2014 = flop_10_function(prop_14_flop, neighborhood_name)
+prop_flop_10_2011 = flop_10_function(prop_11_flop, neighborhood_name)
+prop_flop_10_2012 = flop_10_function(prop_12_flop, neighborhood_name)
+prop_flop_10_2013 = flop_10_function(prop_13_flop, neighborhood_name)
+
+#Top & Flop Nr. 1 der Property-Crime-Rate aus den Jahren 2011 bis 2014
+prop_top_1 = prop_top_10_2011[0], prop_top_10_2012[0], prop_top_10_2013[0], prop_top_10_2014[0]
+prop_flop_1 = prop_flop_10_2011[0], prop_flop_10_2012[0], prop_flop_10_2013[0], prop_flop_10_2014[0]
 
 
 #test
@@ -481,6 +515,36 @@ ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
 plt.xticks(rotation= 14)
+
+
+#Diagramm Top 1 Diebstahl von 2011 bis 2014 (x-Achse: Jahre)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2011", "2012", "2013", "2014"]
+x_values = [viol_top_1[0], viol_top_1[1], viol_top_1[2], viol_top_1[3]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#00E600", "#00FF00", "#33FF33", "#66FF66"])
+ax.set_xlabel("Baltimore Veraenderung von Top-Diebstahl ueber die Jahre")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+#Diagramm Flop 1 Diebstahl von 2011 bis 2014 (x-Achse: Jahre)
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2011", "2012", "2013", "2014"]
+x_values = [viol_flop_1[0], viol_flop_1[1], viol_flop_1[2], viol_flop_1[3]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#00E600", "#00FF00", "#33FF33", "#66FF66"])
+ax.set_xlabel("Baltimore Veraenderung von Flop-Diebstahl ueber die Jahre")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
 
 
 
