@@ -179,7 +179,7 @@ x_values = [crime_average_2010, crime_average_2011, crime_average_2012, crime_av
 
 #Diagramm generieren
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
 ax.set_xlabel("Baltimore Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
@@ -195,7 +195,7 @@ x_labels = [crime_top_10_2010[1], crime_top_10_2010[3], crime_top_10_2010[5], cr
 x_values = [crime_top_10_2010[0], crime_top_10_2010[2], crime_top_10_2010[4], crime_top_10_2010[6], crime_top_10_2010[8], crime_top_10_2010[10], crime_top_10_2010[12], crime_top_10_2010[14], crime_top_10_2010[16], crime_top_10_2010[18]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000"])
 ax.set_xlabel("Baltimore Top 10 Verbrechen 2010")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
@@ -211,7 +211,7 @@ x_labels = [crime_top_10_2012[1], crime_top_10_2012[3], crime_top_10_2012[5], cr
 x_values = [crime_top_10_2012[0], crime_top_10_2012[2], crime_top_10_2012[4], crime_top_10_2012[6], crime_top_10_2012[8], crime_top_10_2012[10], crime_top_10_2012[12], crime_top_10_2012[14], crime_top_10_2012[16], crime_top_10_2012[18]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
 ax.set_xlabel("Baltimore Top 10 Verbrechen 2012")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
@@ -227,7 +227,7 @@ x_labels = [crime_top_10_2014[1], crime_top_10_2014[3], crime_top_10_2014[5], cr
 x_values = [crime_top_10_2014[0], crime_top_10_2014[2], crime_top_10_2014[4], crime_top_10_2014[6], crime_top_10_2014[8], crime_top_10_2014[10], crime_top_10_2014[12], crime_top_10_2014[14], crime_top_10_2014[16], crime_top_10_2014[18]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#FF6666"])
 ax.set_xlabel("Baltimore Top 10 Verbrechen 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
@@ -243,7 +243,7 @@ x_labels = [crime_flop_10_2010[1], crime_flop_10_2010[3], crime_flop_10_2010[5],
 x_values = [crime_flop_10_2010[0], crime_flop_10_2010[2], crime_flop_10_2010[4], crime_flop_10_2010[6], crime_flop_10_2010[8], crime_flop_10_2010[10], crime_flop_10_2010[12], crime_flop_10_2010[14], crime_flop_10_2010[16], crime_flop_10_2010[18]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000"])
 ax.set_xlabel("Baltimore Flop 10 Verbrechen 2010")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
@@ -259,7 +259,7 @@ x_labels = [crime_flop_10_2012[1], crime_flop_10_2012[3], crime_flop_10_2012[5],
 x_values = [crime_flop_10_2012[0], crime_flop_10_2012[2], crime_flop_10_2012[4], crime_flop_10_2012[6], crime_flop_10_2012[8], crime_flop_10_2012[10], crime_flop_10_2012[12], crime_flop_10_2012[14], crime_flop_10_2012[16], crime_flop_10_2012[18]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
 ax.set_xlabel("Baltimore Flop 10 Verbrechen 2012")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
@@ -275,7 +275,7 @@ x_labels = [crime_flop_10_2014[1], crime_flop_10_2014[3], crime_flop_10_2014[5],
 x_values = [crime_flop_10_2014[0], crime_flop_10_2014[2], crime_flop_10_2014[4], crime_flop_10_2014[6], crime_flop_10_2014[8], crime_flop_10_2014[10], crime_flop_10_2014[12], crime_flop_10_2014[14], crime_flop_10_2014[16], crime_flop_10_2014[18]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue", "red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#FF6666"])
 ax.set_xlabel("Baltimore Flop 10 Verbrechen 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
@@ -291,7 +291,7 @@ x_labels = ["2010", "2011", "2012", "2013", "2014"]
 x_values = [crime_top_1[0], crime_top_1[1], crime_top_1[2], crime_top_1[3], crime_top_1[4]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
 ax.set_xlabel("Baltimore Veraenderung von Top-Verbrechen ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
@@ -306,7 +306,7 @@ x_labels = ["2010", "2011", "2012", "2013", "2014"]
 x_values = [crime_flop_1[0], crime_flop_1[1], crime_flop_1[2], crime_flop_1[3], crime_flop_1[4]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["red", "orange", "yellow", "green", "blue"])
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
 ax.set_xlabel("Baltimore Veraenderung von Flop-Verbrechen ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
