@@ -324,7 +324,10 @@ percentage_change = percentage_function(crime_10, crime_14)
 print percentage_change
 
 #Top-10 prozentuale Steigerung berechnen
-crime_percentage_change_top_10 = top_10_function(percentage_change, neighborhood_name)
+crime_percentage_change_rise_top_10 = top_10_function(percentage_change, neighborhood_name)
+
+#Top-10 prozentuale Senkung berechnen
+crime_percentage_change_drop_top_10 = flop_10_function(percentage_change, neighborhood_name)
 
 
 #test
@@ -651,12 +654,28 @@ plt.xticks(rotation= 14)
 #Diagramm Top 10 Prozentuale Steigerung des Verbrechensquotients aus dem Jahre 2010 im Vergleich zum Jahre 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
-x_labels = [crime_percentage_change_top_10[1], crime_percentage_change_top_10[3], crime_percentage_change_top_10[5], crime_percentage_change_top_10[7], crime_percentage_change_top_10[9], crime_percentage_change_top_10[11], crime_percentage_change_top_10[13], crime_percentage_change_top_10[15], crime_percentage_change_top_10[17], crime_percentage_change_top_10[19]]
-x_values = [crime_percentage_change_top_10[0], crime_percentage_change_top_10[2], crime_percentage_change_top_10[4], crime_percentage_change_top_10[6], crime_percentage_change_top_10[8], crime_percentage_change_top_10[10], crime_percentage_change_top_10[12], crime_percentage_change_top_10[14], crime_percentage_change_top_10[16], crime_percentage_change_top_10[18]]
+x_labels = [crime_percentage_change_rise_top_10[1], crime_percentage_change_rise_top_10[3], crime_percentage_change_rise_top_10[5], crime_percentage_change_rise_top_10[7], crime_percentage_change_rise_top_10[9], crime_percentage_change_rise_top_10[11], crime_percentage_change_rise_top_10[13], crime_percentage_change_rise_top_10[15], crime_percentage_change_rise_top_10[17], crime_percentage_change_rise_top_10[19]]
+x_values = [crime_percentage_change_rise_top_10[0], crime_percentage_change_rise_top_10[2], crime_percentage_change_rise_top_10[4], crime_percentage_change_rise_top_10[6], crime_percentage_change_rise_top_10[8], crime_percentage_change_rise_top_10[10], crime_percentage_change_rise_top_10[12], crime_percentage_change_rise_top_10[14], crime_percentage_change_rise_top_10[16], crime_percentage_change_rise_top_10[18]]
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
 ax.set_xlabel("Baltimore Top 10 prozentuale Steigerung")
+ax.xaxis.set_label_position("top")
+ax.set_xticklabels(x_labels, fontsize = 10)
+
+sns.despine(bottom=True)
+plt.xticks(rotation= 14)
+
+
+#Diagramm Top 10 Prozentuale Senkung des Verbrechensquotients aus dem Jahre 2010 im Vergleich zum Jahre 2014 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
+
+x_labels = [crime_percentage_change_drop_top_10[1], crime_percentage_change_drop_top_10[3], crime_percentage_change_drop_top_10[5], crime_percentage_change_drop_top_10[7], crime_percentage_change_drop_top_10[9], crime_percentage_change_drop_top_10[11], crime_percentage_change_drop_top_10[13], crime_percentage_change_drop_top_10[15], crime_percentage_change_drop_top_10[17], crime_percentage_change_drop_top_10[19]]
+x_values = [crime_percentage_change_drop_top_10[0], crime_percentage_change_drop_top_10[2], crime_percentage_change_drop_top_10[4], crime_percentage_change_drop_top_10[6], crime_percentage_change_drop_top_10[8], crime_percentage_change_drop_top_10[10], crime_percentage_change_drop_top_10[12], crime_percentage_change_drop_top_10[14], crime_percentage_change_drop_top_10[16], crime_percentage_change_drop_top_10[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
+ax.set_xlabel("Baltimore Top 10 prozentuale Senkung")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
