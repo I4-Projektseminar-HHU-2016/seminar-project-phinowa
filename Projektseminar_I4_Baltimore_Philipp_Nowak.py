@@ -36,7 +36,7 @@ def flop_10_function(values, neighborhoods):
 		i = i+1
 	return flop_10_list
 
-#Funktion 4: Verbrechensrate gestiegen der Bezirke
+#Funktion 4: Verbrechensrate der Bezirke gestiegen
 def rise_function(values_10, values_11, values_12, values_13, values_14):
 	i = 0
 	x = 0
@@ -54,6 +54,25 @@ def rise_function(values_10, values_11, values_12, values_13, values_14):
 		rise_list.append(x)
 		x = 0
 	return rise_list
+
+#Funktion 5: Verbrechensrate der Bezirke gesunken
+def drop_function(values_10, values_11, values_12, values_13, values_14):
+	i = 0
+	x = 0
+	drop_list = []
+	while i < len(values_10):
+		if values_10[i] - values_11[i] > 0:
+			x = x+1
+		if values_11[i] - values_12[i] > 0:
+			x = x+1
+		if values_12[i] - values_13[i] > 0:
+			x = x+1
+		if values_13[i] - values_14[i] > 0:
+			x = x+1
+		i = i+1
+		drop_list.append(x)
+		x = 0
+	return drop_list
 
 
 #Listen definieren
@@ -277,11 +296,17 @@ prop_flop_10_2013 = flop_10_function(prop_13_flop, neighborhood_name)
 prop_top_1 = prop_top_10_2011[0], prop_top_10_2012[0], prop_top_10_2013[0], prop_top_10_2014[0]
 prop_flop_1 = prop_flop_10_2011[0], prop_flop_10_2012[0], prop_flop_10_2013[0], prop_flop_10_2014[0]
 
-#Verbrechensrate gestiegen der Bezirke berechnen
+#Verbrechensrate der Bezirke gestiegen berechnen
 crime_rise = rise_function(crime_10, crime_11, crime_12, crime_13, crime_14)
 
-#Top-10 Verbrechensrate gestiegen der Bezirke berechnen
+#Top-10 Verbrechensrate der Bezirke gestiegen berechnen
 crime_rise_top_10 = top_10_function(crime_rise, neighborhood_name)
+
+#Verbrechensrate der Bezirke gesunken berechnen
+crime_drop = drop_function(crime_10, crime_11, crime_12, crime_13, crime_14)
+
+#Top-10 Verbrechensrate der Bezirke gesunken berechnen
+crime_drop_top_10 = top_10_function(crime_drop, neighborhood_name)
 
 #test
 #print baltimore_complete
@@ -291,8 +316,8 @@ crime_rise_top_10 = top_10_function(crime_rise, neighborhood_name)
 #print crime_top_1, crime_flop_1
 #print viol_top_10_2014, viol_flop_10_2014
 #print neighborhood_name
-print crime_rise
 print crime_rise_top_10
+print crime_drop_top_10
 
 """
 Im Folgenden werden die Diagramme erstellt
@@ -579,13 +604,30 @@ x_labels = [crime_rise_top_10[1], crime_rise_top_10[3], crime_rise_top_10[5], cr
 x_values = [crime_rise_top_10[0], crime_rise_top_10[2], crime_rise_top_10[4], crime_rise_top_10[6], crime_rise_top_10[8], crime_rise_top_10[10], crime_rise_top_10[12], crime_rise_top_10[14], crime_rise_top_10[16], crime_rise_top_10[18]]
 
 x_values_arr = np.array(x_values)
-sns.barplot(x_labels, x_values_arr, palette = ["#FFFF00"])
+sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
 ax.set_xlabel("Baltimore Top 10 erhoehte Verbrechenswerte pro Jahr")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
 plt.xticks(rotation= 14)
+
+
+#Diagramm Top 10 Wie oft sind die Verbrechenswerte (übergreifend) über die Jahre gefallen im Vergleich zu vorher? (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
+
+x_labels = [crime_drop_top_10[1], crime_drop_top_10[3], crime_drop_top_10[5], crime_drop_top_10[7], crime_drop_top_10[9], crime_drop_top_10[11], crime_drop_top_10[13], crime_drop_top_10[15], crime_drop_top_10[17], crime_drop_top_10[19]]
+x_values = [crime_drop_top_10[0], crime_drop_top_10[2], crime_drop_top_10[4], crime_drop_top_10[6], crime_drop_top_10[8], crime_drop_top_10[10], crime_drop_top_10[12], crime_drop_top_10[14], crime_drop_top_10[16], crime_drop_top_10[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
+ax.set_xlabel("Baltimore Top 10 gesunkene Verbrechenswerte pro Jahr")
+ax.xaxis.set_label_position("top")
+ax.set_xticklabels(x_labels, fontsize = 10)
+
+sns.despine(bottom=True)
+plt.xticks(rotation= 14)
+
 
 
 plt.show()
