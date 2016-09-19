@@ -74,6 +74,17 @@ def drop_function(values_10, values_11, values_12, values_13, values_14):
 		x = 0
 	return drop_list
 
+#Funktion 6: Prozentuale Veränderung berechnen
+def percentage_function(my_list_1, my_list_2):
+	i = 0
+	percentage = 0
+	percentage_list = []
+	while i < len(my_list_1):
+		percentage = int(100-((my_list_1[i]/my_list_2[i])*100))
+		i = i+1
+		percentage_list.append(percentage)
+	return percentage_list
+
 
 #Listen definieren
 baltimore_complete = []
@@ -308,6 +319,14 @@ crime_drop = drop_function(crime_10, crime_11, crime_12, crime_13, crime_14)
 #Top-10 Verbrechensrate der Bezirke gesunken berechnen
 crime_drop_top_10 = top_10_function(crime_drop, neighborhood_name)
 
+#Prozentuale Veränderung berechnen
+percentage_change = percentage_function(crime_10, crime_14)
+print percentage_change
+
+#Top-10 prozentuale Steigerung berechnen
+crime_percentage_change_top_10 = top_10_function(percentage_change, neighborhood_name)
+
+
 #test
 #print baltimore_complete
 #print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
@@ -320,7 +339,7 @@ print crime_rise_top_10
 print crime_drop_top_10
 
 """
-Im Folgenden werden die Diagramme erstellt
+#Im Folgenden werden die Diagramme erstellt
 """
 import numpy as np
 #Seaborn installieren in cmd per "pip install seaborn"
@@ -627,6 +646,23 @@ ax.set_xticklabels(x_labels, fontsize = 10)
 
 sns.despine(bottom=True)
 plt.xticks(rotation= 14)
+
+
+#Diagramm Top 10 Prozentuale Steigerung des Verbrechensquotients aus dem Jahre 2010 im Vergleich zum Jahre 2014 (x-Achse: Bezirke)
+f, ax = plt.subplots(1, 1, figsize=(12, 6))
+
+x_labels = [crime_percentage_change_top_10[1], crime_percentage_change_top_10[3], crime_percentage_change_top_10[5], crime_percentage_change_top_10[7], crime_percentage_change_top_10[9], crime_percentage_change_top_10[11], crime_percentage_change_top_10[13], crime_percentage_change_top_10[15], crime_percentage_change_top_10[17], crime_percentage_change_top_10[19]]
+x_values = [crime_percentage_change_top_10[0], crime_percentage_change_top_10[2], crime_percentage_change_top_10[4], crime_percentage_change_top_10[6], crime_percentage_change_top_10[8], crime_percentage_change_top_10[10], crime_percentage_change_top_10[12], crime_percentage_change_top_10[14], crime_percentage_change_top_10[16], crime_percentage_change_top_10[18]]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
+ax.set_xlabel("Baltimore Top 10 prozentuale Steigerung")
+ax.xaxis.set_label_position("top")
+ax.set_xticklabels(x_labels, fontsize = 10)
+
+sns.despine(bottom=True)
+plt.xticks(rotation= 14)
+
 
 
 
