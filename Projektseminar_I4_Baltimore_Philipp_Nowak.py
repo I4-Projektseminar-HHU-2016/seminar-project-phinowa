@@ -85,6 +85,16 @@ def percentage_function(my_list_1, my_list_2):
 		percentage_list.append(percentage)
 	return percentage_list
 
+#Funktion 7: Median berechnen
+def median_function(my_list):
+	my_list_len = len(my_list)
+	sorted_list = sorted(my_list)
+	median_index = (my_list_len - 1) / 2
+	if (my_list_len % 2):
+		return sorted_list[median_index]
+	else:
+		return (sorted_list[median_index] + sorted_list[median_index + 1]) / 2
+
 
 #Listen definieren
 baltimore_complete = []
@@ -122,6 +132,11 @@ prop_13_top = []
 prop_11_flop = []
 prop_12_flop = []
 prop_13_flop = []
+crime_10_median = []
+crime_11_median = []
+crime_12_median = []
+crime_13_median = []
+crime_14_median = []
 
 
 #CSV-Datei öffnen & einlesen
@@ -167,6 +182,11 @@ for entry in baltimore_complete:
 	prop_11_flop.append(entry[11])
 	prop_12_flop.append(entry[12])
 	prop_13_flop.append(entry[13])
+	crime_10_median.append(entry[1])
+	crime_11_median.append(entry[2])
+	crime_12_median.append(entry[3])
+	crime_13_median.append(entry[4])
+	crime_14_median.append(entry[5])
 
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
@@ -204,6 +224,11 @@ prop_13_top.pop(0)
 prop_11_flop.pop(0)
 prop_12_flop.pop(0)
 prop_13_flop.pop(0)
+crime_10_median.pop(0)
+crime_11_median.pop(0)
+crime_12_median.pop(0)
+crime_13_median.pop(0)
+crime_14_median.pop(0)
 
 
 #Namen in Neighborhoods kürzen, damit Diagramme lesbarer werden
@@ -245,6 +270,11 @@ prop_13_top = map(float, prop_13_top)
 prop_11_flop = map(float, prop_11_flop)
 prop_12_flop = map(float, prop_12_flop)
 prop_13_flop = map(float, prop_13_flop)
+crime_10_median = map(float, crime_10_median)
+crime_11_median = map(float, crime_11_median)
+crime_12_median = map(float, crime_12_median)
+crime_13_median = map(float, crime_13_median)
+crime_14_median = map(float, crime_14_median)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -253,7 +283,6 @@ crime_average_2011 = average_function(crime_11)
 crime_average_2012 = average_function(crime_12)
 crime_average_2013 = average_function(crime_13)
 crime_average_2014 = average_function(crime_14)
-
 
 #Top-10 der Crime-Rate berechnen
 crime_top_10_2010 = top_10_function(crime_10_top, neighborhood_name)
@@ -321,13 +350,20 @@ crime_drop_top_10 = top_10_function(crime_drop, neighborhood_name)
 
 #Prozentuale Veränderung berechnen
 percentage_change = percentage_function(crime_10, crime_14)
-print percentage_change
 
 #Top-10 prozentuale Steigerung berechnen
 crime_percentage_change_rise_top_10 = top_10_function(percentage_change, neighborhood_name)
 
 #Top-10 prozentuale Senkung berechnen
 crime_percentage_change_drop_top_10 = flop_10_function(percentage_change, neighborhood_name)
+
+#Crime-Rate pro Jahr berechnen
+crime_median_2010 = median_function(crime_10_median)
+crime_median_2011 = median_function(crime_11_median)
+crime_median_2012 = median_function(crime_12_median)
+crime_median_2013 = median_function(crime_13_median)
+crime_median_2014 = median_function(crime_14_median)
+
 
 
 #test
@@ -682,6 +718,21 @@ ax.set_xticklabels(x_labels, fontsize = 10)
 sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
+
+#Diagramm Durchschnitt Verbrechenquotient der Jahre 2010-2014 in Baltimore absolut (x-Achse: Jahre)
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [crime_median_2010, crime_median_2011, crime_median_2012, crime_median_2013, crime_median_2014]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
+ax.set_xlabel("Baltimore Median der Verbrechensrate")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
 
 
 
