@@ -109,6 +109,16 @@ def variance_function(my_list):
 	variance = sum(((i - average)**2 for i in my_list)) / (len(my_list) - 1)
 	return variance
 
+#Funktion 10: Standardabweichung berechnen
+def standard_deviation_function(my_list):
+	list_sum = 0
+	for i in my_list:
+		list_sum += i
+	average = list_sum/len(my_list)
+	variance = sum(((i - average)**2 for i in my_list)) / (len(my_list) - 1)
+	standard_deviation = variance**(0.5)
+	return standard_deviation
+
 
 #Listen definieren
 baltimore_complete = []
@@ -398,6 +408,12 @@ crime_variance_2012 = variance_function(crime_12)
 crime_variance_2013 = variance_function(crime_13)
 crime_variance_2014 = variance_function(crime_14)
 
+#Standardabweichung der Crime-Rate pro Jahr berechnen
+crime_standard_devitation_2010 = standard_deviation_function(crime_10)
+crime_standard_devitation_2011 = standard_deviation_function(crime_11)
+crime_standard_devitation_2012 = standard_deviation_function(crime_12)
+crime_standard_devitation_2013 = standard_deviation_function(crime_13)
+crime_standard_devitation_2014 = standard_deviation_function(crime_14)
 
 
 #test
@@ -796,6 +812,22 @@ x_values = [crime_variance_2010, crime_variance_2011, crime_variance_2012, crime
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
 ax.set_xlabel("Baltimore Varianz der Verbrechensrate")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+#Standardabweichung Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [crime_standard_devitation_2010, crime_standard_devitation_2011, crime_standard_devitation_2012, crime_standard_devitation_2013, crime_standard_devitation_2014]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
+ax.set_xlabel("Baltimore Standardabweichung der Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
