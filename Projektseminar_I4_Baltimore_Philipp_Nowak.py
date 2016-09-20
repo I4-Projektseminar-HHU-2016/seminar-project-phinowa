@@ -178,10 +178,26 @@ crime_11_median = []
 crime_12_median = []
 crime_13_median = []
 crime_14_median = []
+viol_10 = []
+viol_11 = []
+viol_12 = []
+viol_13 = []
+viol_14 = []
+prop_11 = []
+prop_12 = []
+prop_13 = []
+prop_14 = []
+domvio_10 = []
+domvio_11 = []
+domvio_12 = []
+gunhom_11 = []
+gunhom_12 = []
+gunhom_13 = []
+gunhom_14 = []
 
 
 #CSV-Datei öffnen & einlesen
-with open ('Crime___Safety__2010-2014_.csv', 'rU') as csv_input:
+with open ('Crime___Safety__2010-2014_n.csv', 'rU') as csv_input:
 	reader = csv.reader(csv_input, delimiter=',')
 	for row in reader:
 		baltimore_complete.append(row)
@@ -228,7 +244,23 @@ for entry in baltimore_complete:
 	crime_12_median.append(entry[3])
 	crime_13_median.append(entry[4])
 	crime_14_median.append(entry[5])
-
+	viol_10.append(entry[6])
+	viol_11.append(entry[7])
+	viol_12.append(entry[8])
+	viol_13.append(entry[9])
+	viol_14.append(entry[10])
+	prop_11.append(entry[11])
+	prop_12.append(entry[12])
+	prop_13.append(entry[13])
+	prop_14.append(entry[14])
+	domvio_10.append(entry[18])
+	domvio_11.append(entry[19])
+	domvio_12.append(entry[20])
+	gunhom_11.append(entry[29])
+	gunhom_12.append(entry[30])
+	gunhom_13.append(entry[31])
+	gunhom_14.append(entry[32])
+	
 
 #Die allgemeinen Spaltenüberschriften stören bei den neuen Listen und werden daher rausgeschmissen
 neighborhood_name.pop(0)
@@ -270,7 +302,22 @@ crime_11_median.pop(0)
 crime_12_median.pop(0)
 crime_13_median.pop(0)
 crime_14_median.pop(0)
-
+viol_10.pop(0)
+viol_11.pop(0)
+viol_12.pop(0)
+viol_13.pop(0)
+viol_14.pop(0)
+prop_11.pop(0)
+prop_12.pop(0)
+prop_13.pop(0)
+prop_14.pop(0)
+domvio_10.pop(0)
+domvio_11.pop(0)
+domvio_12.pop(0)
+gunhom_11.pop(0)
+gunhom_12.pop(0)
+gunhom_13.pop(0)
+gunhom_14.pop(0)
 
 #Namen in Neighborhoods kürzen, damit Diagramme lesbarer werden
 neighborhood_name = [i.split("/")[0] for i in neighborhood_name]
@@ -316,6 +363,23 @@ crime_11_median = map(float, crime_11_median)
 crime_12_median = map(float, crime_12_median)
 crime_13_median = map(float, crime_13_median)
 crime_14_median = map(float, crime_14_median)
+viol_10 = map(float, viol_10)
+viol_11 = map(float, viol_11)
+viol_12 = map(float, viol_12)
+viol_13 = map(float, viol_13)
+viol_14 = map(float, viol_14)
+prop_11 = map(float, prop_11)
+prop_12 = map(float, prop_12)
+prop_13 = map(float, prop_13)
+prop_14 = map(float, prop_14)
+domvio_10 = map(float, domvio_10)
+domvio_11 = map(float, domvio_11)
+domvio_12 = map(float, domvio_12)
+gunhom_11 = map(float, gunhom_11)
+gunhom_12 = map(float, gunhom_12)
+gunhom_13 = map(float, gunhom_13)
+gunhom_14 = map(float, gunhom_14)
+
 #Strings in Integer umwandeln, damit mit ihnen für den Modalwert gearbeitet werden kann
 crime_10_int = map(int, crime_10)
 crime_11_int = map(int, crime_11)
@@ -445,6 +509,30 @@ crime_percent_list_50_2011 = percent_list_50_function(crime_11)
 crime_percent_list_50_2012 = percent_list_50_function(crime_12)
 crime_percent_list_50_2013 = percent_list_50_function(crime_13)
 crime_percent_list_50_2014 = percent_list_50_function(crime_14)
+
+#Violence-Rate pro Jahr berechnen
+violence_average_2010 = average_function(viol_10)
+violence_average_2011 = average_function(viol_11)
+violence_average_2012 = average_function(viol_12)
+violence_average_2013 = average_function(viol_13)
+violence_average_2014 = average_function(viol_14)
+
+#Property-Crime-Rate pro Jahr berechnen
+property_average_2011 = average_function(prop_11)
+property_average_2012 = average_function(prop_12)
+property_average_2013 = average_function(prop_13)
+property_average_2014 = average_function(prop_14)
+
+#Domestic-Violence-Rate pro Jahr berechnen
+domestic_average_2010 = average_function(domvio_10)
+domestic_average_2011 = average_function(domvio_11)
+domestic_average_2012 = average_function(domvio_12)
+
+#Gun-Homicide-Rate pro Jahr berechnen
+gun_average_2011 = average_function(gunhom_11)
+gun_average_2012 = average_function(gunhom_12)
+gun_average_2013 = average_function(gunhom_13)
+gun_average_2014 = average_function(gunhom_14)
 
 
 
@@ -897,6 +985,14 @@ ax.xaxis.set_label_position("top")
 sns.despine(bottom=True)
 plt.tight_layout()
 
+
+#Downtown "gefährlichstes" Viertel, hierfür die Auswertung
+
+
+
+
+
+#Cross-Country "sicherstes" Viertel, hierfür die Auswertung
 
 
 
