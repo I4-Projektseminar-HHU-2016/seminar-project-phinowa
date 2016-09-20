@@ -197,7 +197,7 @@ gunhom_14 = []
 
 
 #CSV-Datei öffnen & einlesen
-with open ('Crime___Safety__2010-2014_n.csv', 'rU') as csv_input:
+with open ('Crime___Safety__2010-2014_.csv', 'rU') as csv_input:
 	reader = csv.reader(csv_input, delimiter=',')
 	for row in reader:
 		baltimore_complete.append(row)
