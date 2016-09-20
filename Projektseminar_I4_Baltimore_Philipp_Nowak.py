@@ -124,6 +124,19 @@ def span_function(my_list):
 	span = max(my_list) - min(my_list)
 	return span
 
+#Funktion 12: Prozentzahl der Werte einer Liste unter Wert "50" berechnen
+def percent_list_50_function(my_list):
+	length_list = 0
+	counter = 0.0
+	while length_list < len(my_list):
+		for i in my_list:
+			if i < 50:
+				counter = counter+1
+			length_list = length_list+1
+	counter_percent = (counter / (len(my_list)))*100
+	return counter_percent
+
+
 #Listen definieren
 baltimore_complete = []
 neighborhood_name = []
@@ -425,6 +438,13 @@ crime_span_2011 = span_function(crime_11)
 crime_span_2012 = span_function(crime_12)
 crime_span_2013 = span_function(crime_13)
 crime_span_2014 = span_function(crime_14)
+
+#Prozentzahl, wie viele Bezirke unter Wert 50 der Crime-Rate pro Jahr liegen, berechnen
+crime_percent_list_50_2010 = percent_list_50_function(crime_10)
+crime_percent_list_50_2011 = percent_list_50_function(crime_11)
+crime_percent_list_50_2012 = percent_list_50_function(crime_12)
+crime_percent_list_50_2013 = percent_list_50_function(crime_13)
+crime_percent_list_50_2014 = percent_list_50_function(crime_14)
 
 
 
@@ -862,7 +882,25 @@ sns.despine(bottom=True)
 plt.tight_layout()
 
 
+#Bei wie viel Prozent der Bezirke liegt die Kriminalitätsrate unter dem Wert "50" bei den Jahren 2010-2014? (x-Achse: Jahre)
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [crime_percent_list_50_2010, crime_percent_list_50_2011, crime_percent_list_50_2012, crime_percent_list_50_2013, crime_percent_list_50_2014]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
+ax.set_xlabel("Baltimore Prozentzahl Bezirke unter Wert 50 der Verbrechensrate")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+
 
 plt.show()
+
 
 
