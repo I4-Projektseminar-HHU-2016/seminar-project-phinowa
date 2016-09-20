@@ -95,6 +95,11 @@ def median_function(my_list):
 	else:
 		return (sorted_list[median_index] + sorted_list[median_index + 1]) / 2
 
+#Funktion 8: Modalwert berechnen
+def modal_value_function(my_list):
+	list_modal = max(set(my_list), key=my_list.count)
+	return list_modal
+
 
 #Listen definieren
 baltimore_complete = []
@@ -275,6 +280,12 @@ crime_11_median = map(float, crime_11_median)
 crime_12_median = map(float, crime_12_median)
 crime_13_median = map(float, crime_13_median)
 crime_14_median = map(float, crime_14_median)
+#Strings in Integer umwandeln, damit mit ihnen für den Modalwert gearbeitet werden kann
+crime_10_int = map(int, crime_10)
+crime_11_int = map(int, crime_11)
+crime_12_int = map(int, crime_12)
+crime_13_int = map(int, crime_13)
+crime_14_int = map(int, crime_14)
 
 
 #Crime-Rate pro Jahr berechnen
@@ -357,13 +368,19 @@ crime_percentage_change_rise_top_10 = top_10_function(percentage_change, neighbo
 #Top-10 prozentuale Senkung berechnen
 crime_percentage_change_drop_top_10 = flop_10_function(percentage_change, neighborhood_name)
 
-#Crime-Rate pro Jahr berechnen
+#Median der Crime-Rate pro Jahr berechnen
 crime_median_2010 = median_function(crime_10_median)
 crime_median_2011 = median_function(crime_11_median)
 crime_median_2012 = median_function(crime_12_median)
 crime_median_2013 = median_function(crime_13_median)
 crime_median_2014 = median_function(crime_14_median)
 
+#Modalwert der Crime-Rate pro Jahr berechnen
+crime_modal_value_2010 = modal_value_function(crime_10_int)
+crime_modal_value_2011 = modal_value_function(crime_11_int)
+crime_modal_value_2012 = modal_value_function(crime_12_int)
+crime_modal_value_2013 = modal_value_function(crime_13_int)
+crime_modal_value_2014 = modal_value_function(crime_14_int)
 
 
 #test
@@ -374,8 +391,9 @@ crime_median_2014 = median_function(crime_14_median)
 #print crime_top_1, crime_flop_1
 #print viol_top_10_2014, viol_flop_10_2014
 #print neighborhood_name
-print crime_rise_top_10
-print crime_drop_top_10
+#print crime_rise_top_10
+#print crime_drop_top_10
+
 
 """
 #Im Folgenden werden die Diagramme erstellt
@@ -719,7 +737,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Durchschnitt Verbrechenquotient der Jahre 2010-2014 in Baltimore absolut (x-Achse: Jahre)
+#Median Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -735,6 +753,24 @@ sns.despine(bottom=True)
 plt.tight_layout()
 
 
+#Modalwert Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+x_labels = ["2010", "2011", "2012", "2013", "2014"]
+x_values = [crime_modal_value_2010, crime_modal_value_2011, crime_modal_value_2012, crime_modal_value_2013, crime_modal_value_2014]
+
+x_values_arr = np.array(x_values)
+sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
+ax.set_xlabel("Baltimore Modalwert der Verbrechensrate")
+ax.xaxis.set_label_position("top")
+
+sns.despine(bottom=True)
+plt.tight_layout()
+
+
+
 
 plt.show()
+
 
