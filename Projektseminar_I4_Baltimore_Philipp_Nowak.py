@@ -1058,6 +1058,46 @@ sns.despine()
 plt.tight_layout()
 
 
+#Liniendiagramm Baltimore über Jahre 2011-2014: Durchschnittswerte crime, viol, prop, domvio, gunhom: Was hat sich wie stark verändert?
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+gunhom_labels = ["2011", "2012", "2013", "2014"]
+gunhom_values = [gun_average_2011, gun_average_2012, gun_average_2013, gun_average_2014]
+gunhom_labels_arr = np.array(gunhom_labels)
+gunhom_values_arr = np.array(gunhom_values)
+
+prop_labels = ["2011", "2012", "2013", "2014"]
+prop_values = [property_average_2011, property_average_2012, property_average_2013, property_average_2014]
+prop_labels_arr = np.array(prop_labels)
+prop_values_arr = np.array(prop_values)
+
+viol_labels = ["2011", "2012", "2013", "2014"]
+viol_values = [violence_average_2011, violence_average_2012, violence_average_2013, violence_average_2014]
+viol_labels_arr = np.array(viol_labels)
+viol_values_arr = np.array(viol_values)
+
+domvio_labels = ["2011", "2012"]
+domvio_values = [domestic_average_2011, domestic_average_2012]
+domvio_labels_arr = np.array(domvio_labels)
+domvio_values_arr = np.array(domvio_values)
+
+crime_labels = ["2011", "2012", "2013", "2014"]
+crime_values = [crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014]
+crime_labels_arr = np.array(crime_labels)
+crime_values_arr = np.array(crime_values)
+
+sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "violet")
+sns.pointplot(prop_labels_arr, prop_values_arr, color = "green")
+sns.pointplot(viol_labels_arr, viol_values_arr, color = "blue")
+sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "orange")
+sns.pointplot(crime_labels_arr, crime_values_arr, color = "red")
+ax.set_xlabel("Baltimore - Entwicklung ueber die Jahre hinweg")
+ax.xaxis.set_label_position("top")
+
+sns.despine()
+plt.tight_layout()
+
 
 
 plt.show()
