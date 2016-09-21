@@ -976,8 +976,7 @@ sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Downtown "gefährlichstes" Viertel, hierfür die Auswertung
-#Liniendiagramm Downtown („gefährlichster“ Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
+#Liniendiagramm Downtown ("gefährlichster" Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -1018,10 +1017,48 @@ sns.despine()
 plt.tight_layout()
 
 
-#Cross-Country "sicherstes" Viertel, hierfür die Auswertung
+#Liniendiagramm Cross-Country ("sicherster" Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+gunhom_labels = ["2011", "2012", "2013", "2014"]
+gunhom_values = [gunhom_11[10], gunhom_12[10], gunhom_13[10], gunhom_14[10]]
+gunhom_labels_arr = np.array(gunhom_labels)
+gunhom_values_arr = np.array(gunhom_values)
+
+prop_labels = ["2011", "2012", "2013", "2014"]
+prop_values = [prop_11[10], prop_12[10], prop_13[10], prop_14[10]]
+prop_labels_arr = np.array(prop_labels)
+prop_values_arr = np.array(prop_values)
+
+viol_labels = ["2011", "2012", "2013", "2014"]
+viol_values = [viol_11[10], viol_12[10], viol_13[10], viol_14[10]]
+viol_labels_arr = np.array(viol_labels)
+viol_values_arr = np.array(viol_values)
+
+domvio_labels = ["2011", "2012"]
+domvio_values = [domvio_11[10], domvio_12[10]]
+domvio_labels_arr = np.array(domvio_labels)
+domvio_values_arr = np.array(domvio_values)
+
+crime_labels = ["2011", "2012", "2013", "2014"]
+crime_values = [crime_11[10], crime_12[10], crime_13[10], crime_14[10]]
+crime_labels_arr = np.array(crime_labels)
+crime_values_arr = np.array(crime_values)
+
+sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "violet")
+sns.pointplot(prop_labels_arr, prop_values_arr, color = "green")
+sns.pointplot(viol_labels_arr, viol_values_arr, color = "blue")
+sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "orange")
+sns.pointplot(crime_labels_arr, crime_values_arr, color = "red")
+ax.set_xlabel("Baltimore Cross-Country - sicherster Bezirk - Entwicklung")
+ax.xaxis.set_label_position("top")
+
+sns.despine()
+plt.tight_layout()
+
 
 
 
 plt.show()
-
 
