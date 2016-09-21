@@ -178,7 +178,6 @@ crime_11_median = []
 crime_12_median = []
 crime_13_median = []
 crime_14_median = []
-viol_10 = []
 viol_11 = []
 viol_12 = []
 viol_13 = []
@@ -187,7 +186,6 @@ prop_11 = []
 prop_12 = []
 prop_13 = []
 prop_14 = []
-domvio_10 = []
 domvio_11 = []
 domvio_12 = []
 gunhom_11 = []
@@ -244,7 +242,6 @@ for entry in baltimore_complete:
 	crime_12_median.append(entry[3])
 	crime_13_median.append(entry[4])
 	crime_14_median.append(entry[5])
-	viol_10.append(entry[6])
 	viol_11.append(entry[7])
 	viol_12.append(entry[8])
 	viol_13.append(entry[9])
@@ -253,7 +250,6 @@ for entry in baltimore_complete:
 	prop_12.append(entry[12])
 	prop_13.append(entry[13])
 	prop_14.append(entry[14])
-	domvio_10.append(entry[18])
 	domvio_11.append(entry[19])
 	domvio_12.append(entry[20])
 	gunhom_11.append(entry[29])
@@ -302,7 +298,6 @@ crime_11_median.pop(0)
 crime_12_median.pop(0)
 crime_13_median.pop(0)
 crime_14_median.pop(0)
-viol_10.pop(0)
 viol_11.pop(0)
 viol_12.pop(0)
 viol_13.pop(0)
@@ -311,7 +306,6 @@ prop_11.pop(0)
 prop_12.pop(0)
 prop_13.pop(0)
 prop_14.pop(0)
-domvio_10.pop(0)
 domvio_11.pop(0)
 domvio_12.pop(0)
 gunhom_11.pop(0)
@@ -363,7 +357,6 @@ crime_11_median = map(float, crime_11_median)
 crime_12_median = map(float, crime_12_median)
 crime_13_median = map(float, crime_13_median)
 crime_14_median = map(float, crime_14_median)
-viol_10 = map(float, viol_10)
 viol_11 = map(float, viol_11)
 viol_12 = map(float, viol_12)
 viol_13 = map(float, viol_13)
@@ -372,7 +365,6 @@ prop_11 = map(float, prop_11)
 prop_12 = map(float, prop_12)
 prop_13 = map(float, prop_13)
 prop_14 = map(float, prop_14)
-domvio_10 = map(float, domvio_10)
 domvio_11 = map(float, domvio_11)
 domvio_12 = map(float, domvio_12)
 gunhom_11 = map(float, gunhom_11)
@@ -511,7 +503,6 @@ crime_percent_list_50_2013 = percent_list_50_function(crime_13)
 crime_percent_list_50_2014 = percent_list_50_function(crime_14)
 
 #Violence-Rate pro Jahr berechnen
-violence_average_2010 = average_function(viol_10)
 violence_average_2011 = average_function(viol_11)
 violence_average_2012 = average_function(viol_12)
 violence_average_2013 = average_function(viol_13)
@@ -524,7 +515,6 @@ property_average_2013 = average_function(prop_13)
 property_average_2014 = average_function(prop_14)
 
 #Domestic-Violence-Rate pro Jahr berechnen
-domestic_average_2010 = average_function(domvio_10)
 domestic_average_2011 = average_function(domvio_11)
 domestic_average_2012 = average_function(domvio_12)
 
@@ -987,9 +977,45 @@ plt.tight_layout()
 
 
 #Downtown "gefährlichstes" Viertel, hierfür die Auswertung
+#Liniendiagramm Downtown („gefährlichster“ Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
+sns.set(style="white", context="talk")
+f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
+gunhom_labels = ["2011", "2012", "2013", "2014"]
+gunhom_values = [gunhom_11[13], gunhom_12[13], gunhom_13[13], gunhom_14[13]]
+gunhom_labels_arr = np.array(gunhom_labels)
+gunhom_values_arr = np.array(gunhom_values)
 
+prop_labels = ["2011", "2012", "2013", "2014"]
+prop_values = [prop_11[13], prop_12[13], prop_13[13], prop_14[13]]
+prop_labels_arr = np.array(prop_labels)
+prop_values_arr = np.array(prop_values)
 
+viol_labels = ["2011", "2012", "2013", "2014"]
+viol_values = [viol_11[13], viol_12[13], viol_13[13], viol_14[13]]
+viol_labels_arr = np.array(viol_labels)
+viol_values_arr = np.array(viol_values)
+
+domvio_labels = ["2011", "2012"]
+domvio_values = [domvio_11[13], domvio_12[13]]
+domvio_labels_arr = np.array(domvio_labels)
+domvio_values_arr = np.array(domvio_values)
+
+crime_labels = ["2011", "2012", "2013", "2014"]
+crime_values = [crime_11[13], crime_12[13], crime_13[13], crime_14[13]]
+crime_labels_arr = np.array(crime_labels)
+crime_values_arr = np.array(crime_values)
+
+sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "violet")
+sns.pointplot(prop_labels_arr, prop_values_arr, color = "green")
+sns.pointplot(viol_labels_arr, viol_values_arr, color = "blue")
+sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "orange")
+sns.pointplot(crime_labels_arr, crime_values_arr, color = "red")
+ax.set_xlabel("Baltimore Downtown - gefaehrlichster Bezirk - Entwicklung")
+ax.xaxis.set_label_position("top")
+
+sns.despine()
+plt.tight_layout()
 
 
 #Cross-Country "sicherstes" Viertel, hierfür die Auswertung
@@ -997,6 +1023,5 @@ plt.tight_layout()
 
 
 plt.show()
-
 
 
