@@ -313,6 +313,7 @@ gunhom_12.pop(0)
 gunhom_13.pop(0)
 gunhom_14.pop(0)
 
+
 #Namen in Neighborhoods kürzen, damit Diagramme lesbarer werden
 neighborhood_name = [i.split("/")[0] for i in neighborhood_name]
 neighborhood_name = [i.split("&")[0] for i in neighborhood_name]
@@ -371,7 +372,6 @@ gunhom_11 = map(float, gunhom_11)
 gunhom_12 = map(float, gunhom_12)
 gunhom_13 = map(float, gunhom_13)
 gunhom_14 = map(float, gunhom_14)
-
 #Strings in Integer umwandeln, damit mit ihnen für den Modalwert gearbeitet werden kann
 crime_10_int = map(int, crime_10)
 crime_11_int = map(int, crime_11)
@@ -525,19 +525,6 @@ gun_average_2013 = average_function(gunhom_13)
 gun_average_2014 = average_function(gunhom_14)
 
 
-
-#test
-#print baltimore_complete
-#print crime_average_2010, crime_average_2011, crime_average_2012, crime_average_2013, crime_average_2014
-#print crime_top_10_2010, crime_top_10_2012, crime_top_10_2014
-#print crime_flop_10_2010, crime_flop_10_2012, crime_flop_10_2014
-#print crime_top_1, crime_flop_1
-#print viol_top_10_2014, viol_flop_10_2014
-#print neighborhood_name
-#print crime_rise_top_10
-#print crime_drop_top_10
-
-
 """
 #Im Folgenden werden die Diagramme erstellt
 """
@@ -546,7 +533,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-#Diagramm Durchschnitt Verbrechenquotient der Jahre 2010-2014 in Baltimore absolut (x-Achse: Jahre)
+#Figur 1: Diagramm Durchschnitt Verbrechenquotient der Jahre 2010-2014 in Baltimore absolut (x-Achse: Jahre)
 #Diagramm anlegen
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
@@ -558,7 +545,7 @@ x_values = [crime_average_2010, crime_average_2011, crime_average_2012, crime_av
 #Diagramm generieren
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Verbrechensrate")
+ax.set_xlabel("Baltimore - Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 #Endeinstellungen
@@ -566,7 +553,7 @@ sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Diagramm Top 10 Verbrechen in 2010 (x-Achse: Bezirke)
+#Figur 2: Diagramm Top 10 Verbrechen in 2010 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_top_10_2010[1], crime_top_10_2010[3], crime_top_10_2010[5], crime_top_10_2010[7], crime_top_10_2010[9], crime_top_10_2010[11], crime_top_10_2010[13], crime_top_10_2010[15], crime_top_10_2010[17], crime_top_10_2010[19]]
@@ -574,7 +561,7 @@ x_values = [crime_top_10_2010[0], crime_top_10_2010[2], crime_top_10_2010[4], cr
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000"])
-ax.set_xlabel("Baltimore Top 10 Verbrechen 2010")
+ax.set_xlabel("Baltimore - Top 10 Verbrechen 2010")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -582,7 +569,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 10 Verbrechen in 2012 (x-Achse: Bezirke)
+#Figur 3: Diagramm Top 10 Verbrechen in 2012 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_top_10_2012[1], crime_top_10_2012[3], crime_top_10_2012[5], crime_top_10_2012[7], crime_top_10_2012[9], crime_top_10_2012[11], crime_top_10_2012[13], crime_top_10_2012[15], crime_top_10_2012[17], crime_top_10_2012[19]]
@@ -590,7 +577,7 @@ x_values = [crime_top_10_2012[0], crime_top_10_2012[2], crime_top_10_2012[4], cr
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
-ax.set_xlabel("Baltimore Top 10 Verbrechen 2012")
+ax.set_xlabel("Baltimore - Top 10 Verbrechen 2012")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -598,7 +585,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 10 Verbrechen in 2014 (x-Achse: Bezirke)
+#Figur 4: Diagramm Top 10 Verbrechen in 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_top_10_2014[1], crime_top_10_2014[3], crime_top_10_2014[5], crime_top_10_2014[7], crime_top_10_2014[9], crime_top_10_2014[11], crime_top_10_2014[13], crime_top_10_2014[15], crime_top_10_2014[17], crime_top_10_2014[19]]
@@ -606,7 +593,7 @@ x_values = [crime_top_10_2014[0], crime_top_10_2014[2], crime_top_10_2014[4], cr
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF6666"])
-ax.set_xlabel("Baltimore Top 10 Verbrechen 2014")
+ax.set_xlabel("Baltimore - Top 10 Verbrechen 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -614,7 +601,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Flop 10 Verbrechen in 2010 (x-Achse: Bezirke)
+#Figur 5: Diagramm Flop 10 Verbrechen in 2010 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_flop_10_2010[1], crime_flop_10_2010[3], crime_flop_10_2010[5], crime_flop_10_2010[7], crime_flop_10_2010[9], crime_flop_10_2010[11], crime_flop_10_2010[13], crime_flop_10_2010[15], crime_flop_10_2010[17], crime_flop_10_2010[19]]
@@ -622,7 +609,7 @@ x_values = [crime_flop_10_2010[0], crime_flop_10_2010[2], crime_flop_10_2010[4],
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000"])
-ax.set_xlabel("Baltimore Flop 10 Verbrechen 2010")
+ax.set_xlabel("Baltimore - Flop 10 Verbrechen 2010")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -630,7 +617,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Flop 10 Verbrechen in 2012 (x-Achse: Bezirke)
+#Figur 6: Diagramm Flop 10 Verbrechen in 2012 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_flop_10_2012[1], crime_flop_10_2012[3], crime_flop_10_2012[5], crime_flop_10_2012[7], crime_flop_10_2012[9], crime_flop_10_2012[11], crime_flop_10_2012[13], crime_flop_10_2012[15], crime_flop_10_2012[17], crime_flop_10_2012[19]]
@@ -638,7 +625,7 @@ x_values = [crime_flop_10_2012[0], crime_flop_10_2012[2], crime_flop_10_2012[4],
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
-ax.set_xlabel("Baltimore Flop 10 Verbrechen 2012")
+ax.set_xlabel("Baltimore - Flop 10 Verbrechen 2012")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -646,7 +633,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Flop 10 Verbrechen in 2014 (x-Achse: Bezirke)
+#Figur 7: Diagramm Flop 10 Verbrechen in 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_flop_10_2014[1], crime_flop_10_2014[3], crime_flop_10_2014[5], crime_flop_10_2014[7], crime_flop_10_2014[9], crime_flop_10_2014[11], crime_flop_10_2014[13], crime_flop_10_2014[15], crime_flop_10_2014[17], crime_flop_10_2014[19]]
@@ -654,7 +641,7 @@ x_values = [crime_flop_10_2014[0], crime_flop_10_2014[2], crime_flop_10_2014[4],
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF6666"])
-ax.set_xlabel("Baltimore Flop 10 Verbrechen 2014")
+ax.set_xlabel("Baltimore - Flop 10 Verbrechen 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -662,7 +649,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 1 Verbrechen von 2010 bis 2014 (x-Achse: Jahre)
+#Figur 8: Diagramm Top 1 Verbrechen von 2010 bis 2014 (x-Achse: Jahre)
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
 x_labels = ["2010", "2011", "2012", "2013", "2014"]
@@ -670,14 +657,14 @@ x_values = [crime_top_1[0], crime_top_1[1], crime_top_1[2], crime_top_1[3], crim
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Veraenderung von Top-Verbrechen ueber die Jahre")
+ax.set_xlabel("Baltimore - Veraenderung von Top-Verbrechen ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Diagramm Flop 1 Verbrechen von 2010 bis 2014 (x-Achse: Jahre)
+#Figur 9: Diagramm Flop 1 Verbrechen von 2010 bis 2014 (x-Achse: Jahre)
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
 x_labels = ["2010", "2011", "2012", "2013", "2014"]
@@ -685,14 +672,14 @@ x_values = [crime_flop_1[0], crime_flop_1[1], crime_flop_1[2], crime_flop_1[3], 
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Veraenderung von Flop-Verbrechen ueber die Jahre")
+ax.set_xlabel("Baltimore - Veraenderung von Flop-Verbrechen ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Diagramm Top 10 Gewalt in 2014 (x-Achse: Bezirke)
+#Figur 10: Diagramm Top 10 Gewalt in 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [viol_top_10_2014[1], viol_top_10_2014[3], viol_top_10_2014[5], viol_top_10_2014[7], viol_top_10_2014[9], viol_top_10_2014[11], viol_top_10_2014[13], viol_top_10_2014[15], viol_top_10_2014[17], viol_top_10_2014[19]]
@@ -700,7 +687,7 @@ x_values = [viol_top_10_2014[0], viol_top_10_2014[2], viol_top_10_2014[4], viol_
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#6666FF"])
-ax.set_xlabel("Baltimore Top 10 Gewalt 2014")
+ax.set_xlabel("Baltimore - Top 10 Gewaltdelikt 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -708,7 +695,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Flop 10 Gewalt in 2014 (x-Achse: Bezirke)
+#Figur 11: Diagramm Flop 10 Gewalt in 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [viol_flop_10_2014[1], viol_flop_10_2014[3], viol_flop_10_2014[5], viol_flop_10_2014[7], viol_flop_10_2014[9], viol_flop_10_2014[11], viol_flop_10_2014[13], viol_flop_10_2014[15], viol_flop_10_2014[17], viol_flop_10_2014[19]]
@@ -716,7 +703,7 @@ x_values = [viol_flop_10_2014[0], viol_flop_10_2014[2], viol_flop_10_2014[4], vi
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#6666FF"])
-ax.set_xlabel("Baltimore Flop 10 Gewalt 2014")
+ax.set_xlabel("Baltimore - Flop 10 Gewaltdelikt 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -724,7 +711,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 1 Gewalt von 2010 bis 2014 (x-Achse: Jahre)
+#Figur 12: Diagramm Top 1 Gewalt von 2010 bis 2014 (x-Achse: Jahre)
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
 x_labels = ["2010", "2011", "2012", "2013", "2014"]
@@ -732,14 +719,14 @@ x_values = [viol_top_1[0], viol_top_1[1], viol_top_1[2], viol_top_1[3], viol_top
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#0000CD", "#0000E6", "#0000FF", "#3333FF", "#6666FF"])
-ax.set_xlabel("Baltimore Veraenderung von Top-Gewalt ueber die Jahre")
+ax.set_xlabel("Baltimore - Veraenderung von Top-Gewaltdelikt ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Diagramm Flop 1 Gewalt von 2010 bis 2014 (x-Achse: Jahre)
+#Figur 13: Diagramm Flop 1 Gewalt von 2010 bis 2014 (x-Achse: Jahre)
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
 x_labels = ["2010", "2011", "2012", "2013", "2014"]
@@ -747,14 +734,14 @@ x_values = [viol_flop_1[0], viol_flop_1[1], viol_flop_1[2], viol_flop_1[3], viol
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#0000CD", "#0000E6", "#0000FF", "#3333FF", "#6666FF"])
-ax.set_xlabel("Baltimore Veraenderung von Flop-Gewalt ueber die Jahre")
+ax.set_xlabel("Baltimore - Veraenderung von Flop-Gewaltdelikt ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Diagramm Top 10 Diebstahl in 2014 (x-Achse: Bezirke)
+#Figur 14: Diagramm Top 10 Diebstahl in 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [prop_top_10_2014[1], prop_top_10_2014[3], prop_top_10_2014[5], prop_top_10_2014[7], prop_top_10_2014[9], prop_top_10_2014[11], prop_top_10_2014[13], prop_top_10_2014[15], prop_top_10_2014[17], prop_top_10_2014[19]]
@@ -762,7 +749,7 @@ x_values = [prop_top_10_2014[0], prop_top_10_2014[2], prop_top_10_2014[4], prop_
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#66FF66"])
-ax.set_xlabel("Baltimore Top 10 Diebstahl 2014")
+ax.set_xlabel("Baltimore - Top 10 Diebstahl 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -770,7 +757,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Flop 10 Diebstahl in 2014 (x-Achse: Bezirke)
+#Figur 15: Diagramm Flop 10 Diebstahl in 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [prop_flop_10_2014[1], prop_flop_10_2014[3], prop_flop_10_2014[5], prop_flop_10_2014[7], prop_flop_10_2014[9], prop_flop_10_2014[11], prop_flop_10_2014[13], prop_flop_10_2014[15], prop_flop_10_2014[17], prop_flop_10_2014[19]]
@@ -778,7 +765,7 @@ x_values = [prop_flop_10_2014[0], prop_flop_10_2014[2], prop_flop_10_2014[4], pr
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#66FF66"])
-ax.set_xlabel("Baltimore Flop 10 Diebstahl 2014")
+ax.set_xlabel("Baltimore - Flop 10 Diebstahl 2014")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -786,7 +773,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 1 Diebstahl von 2011 bis 2014 (x-Achse: Jahre)
+#Figur 16: Diagramm Top 1 Diebstahl von 2011 bis 2014 (x-Achse: Jahre)
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
 x_labels = ["2011", "2012", "2013", "2014"]
@@ -794,14 +781,14 @@ x_values = [viol_top_1[0], viol_top_1[1], viol_top_1[2], viol_top_1[3]]
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#00E600", "#00FF00", "#33FF33", "#66FF66"])
-ax.set_xlabel("Baltimore Veraenderung von Top-Diebstahl ueber die Jahre")
+ax.set_xlabel("Baltimore - Veraenderung von Top-Diebstahl ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Diagramm Flop 1 Diebstahl von 2011 bis 2014 (x-Achse: Jahre)
+#Figur 17: Diagramm Flop 1 Diebstahl von 2011 bis 2014 (x-Achse: Jahre)
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
 x_labels = ["2011", "2012", "2013", "2014"]
@@ -809,14 +796,14 @@ x_values = [viol_flop_1[0], viol_flop_1[1], viol_flop_1[2], viol_flop_1[3]]
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#00E600", "#00FF00", "#33FF33", "#66FF66"])
-ax.set_xlabel("Baltimore Veraenderung von Flop-Diebstahl ueber die Jahre")
+ax.set_xlabel("Baltimore - Veraenderung von Flop-Diebstahl ueber die Jahre")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Diagramm Top 10 Wie oft sind die Verbrechenswerte (übergreifend) über die Jahre gestiegen im Vergleich zu vorher? (x-Achse: Bezirke)
+#Figur 18: Diagramm Top 10 Wie oft sind die Verbrechenswerte (übergreifend) über die Jahre gestiegen im Vergleich zu vorher? (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_rise_top_10[1], crime_rise_top_10[3], crime_rise_top_10[5], crime_rise_top_10[7], crime_rise_top_10[9], crime_rise_top_10[11], crime_rise_top_10[13], crime_rise_top_10[15], crime_rise_top_10[17], crime_rise_top_10[19]]
@@ -824,7 +811,7 @@ x_values = [crime_rise_top_10[0], crime_rise_top_10[2], crime_rise_top_10[4], cr
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
-ax.set_xlabel("Baltimore Top 10 erhoehte Verbrechenswerte pro Jahr")
+ax.set_xlabel("Baltimore - Top 10 gestiegene Verbrechenswerte pro Jahr")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -832,7 +819,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 10 Wie oft sind die Verbrechenswerte (übergreifend) über die Jahre gefallen im Vergleich zu vorher? (x-Achse: Bezirke)
+#Figur 19: Diagramm Top 10 Wie oft sind die Verbrechenswerte (übergreifend) über die Jahre gefallen im Vergleich zu vorher? (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_drop_top_10[1], crime_drop_top_10[3], crime_drop_top_10[5], crime_drop_top_10[7], crime_drop_top_10[9], crime_drop_top_10[11], crime_drop_top_10[13], crime_drop_top_10[15], crime_drop_top_10[17], crime_drop_top_10[19]]
@@ -840,7 +827,7 @@ x_values = [crime_drop_top_10[0], crime_drop_top_10[2], crime_drop_top_10[4], cr
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
-ax.set_xlabel("Baltimore Top 10 gesunkene Verbrechenswerte pro Jahr")
+ax.set_xlabel("Baltimore - Top 10 gesunkene Verbrechenswerte pro Jahr")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -848,7 +835,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 10 Prozentuale Steigerung des Verbrechensquotients aus dem Jahre 2010 im Vergleich zum Jahre 2014 (x-Achse: Bezirke)
+#Figur 20: Diagramm Top 10 Prozentuale Steigerung des Verbrechensquotients aus dem Jahre 2010 im Vergleich zum Jahre 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_percentage_change_rise_top_10[1], crime_percentage_change_rise_top_10[3], crime_percentage_change_rise_top_10[5], crime_percentage_change_rise_top_10[7], crime_percentage_change_rise_top_10[9], crime_percentage_change_rise_top_10[11], crime_percentage_change_rise_top_10[13], crime_percentage_change_rise_top_10[15], crime_percentage_change_rise_top_10[17], crime_percentage_change_rise_top_10[19]]
@@ -856,7 +843,7 @@ x_values = [crime_percentage_change_rise_top_10[0], crime_percentage_change_rise
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
-ax.set_xlabel("Baltimore Top 10 prozentuale Steigerung")
+ax.set_xlabel("Baltimore - Top 10 prozentuale Steigerung")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -864,7 +851,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Diagramm Top 10 Prozentuale Senkung des Verbrechensquotients aus dem Jahre 2010 im Vergleich zum Jahre 2014 (x-Achse: Bezirke)
+#Figur 21: Diagramm Top 10 Prozentuale Senkung des Verbrechensquotients aus dem Jahre 2010 im Vergleich zum Jahre 2014 (x-Achse: Bezirke)
 f, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 x_labels = [crime_percentage_change_drop_top_10[1], crime_percentage_change_drop_top_10[3], crime_percentage_change_drop_top_10[5], crime_percentage_change_drop_top_10[7], crime_percentage_change_drop_top_10[9], crime_percentage_change_drop_top_10[11], crime_percentage_change_drop_top_10[13], crime_percentage_change_drop_top_10[15], crime_percentage_change_drop_top_10[17], crime_percentage_change_drop_top_10[19]]
@@ -872,7 +859,7 @@ x_values = [crime_percentage_change_drop_top_10[0], crime_percentage_change_drop
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#FF0000"])
-ax.set_xlabel("Baltimore Top 10 prozentuale Senkung")
+ax.set_xlabel("Baltimore - Top 10 prozentuale Senkung")
 ax.xaxis.set_label_position("top")
 ax.set_xticklabels(x_labels, fontsize = 10)
 
@@ -880,7 +867,7 @@ sns.despine(bottom=True)
 plt.xticks(rotation= 14)
 
 
-#Median Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
+#Figur 22: Median Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -889,14 +876,14 @@ x_values = [crime_median_2010, crime_median_2011, crime_median_2012, crime_media
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Median der Verbrechensrate")
+ax.set_xlabel("Baltimore - Median der Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Modalwert Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
+#Figur 23: Modalwert Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -905,14 +892,14 @@ x_values = [crime_modal_value_2010, crime_modal_value_2011, crime_modal_value_20
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Modalwert der Verbrechensrate")
+ax.set_xlabel("Baltimore - Modalwert der Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Varianz Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
+#Figur 24: Varianz Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -921,14 +908,14 @@ x_values = [crime_variance_2010, crime_variance_2011, crime_variance_2012, crime
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Varianz der Verbrechensrate")
+ax.set_xlabel("Baltimore - Varianz der Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Standardabweichung Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
+#Figur 25: Standardabweichung Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -937,14 +924,14 @@ x_values = [crime_standard_devitation_2010, crime_standard_devitation_2011, crim
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Standardabweichung der Verbrechensrate")
+ax.set_xlabel("Baltimore - Standardabweichung der Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Spannweite Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
+#Figur 26: Spannweite Verbrechenquotient der Jahre 2010-2014 (x-Achse: Jahre)
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -953,14 +940,14 @@ x_values = [crime_span_2010, crime_span_2011, crime_span_2012, crime_span_2013, 
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Spannweite der Verbrechensrate")
+ax.set_xlabel("Baltimore - Spannweite der Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Bei wie viel Prozent der Bezirke liegt die Kriminalitätsrate unter dem Wert "50" bei den Jahren 2010-2014? (x-Achse: Jahre)
+#Figur 27: Bei wie viel Prozent der Bezirke liegt die Kriminalitätsrate unter dem Wert "50" bei den Jahren 2010-2014? (x-Achse: Jahre)
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -969,14 +956,14 @@ x_values = [crime_percent_list_50_2010, crime_percent_list_50_2011, crime_percen
 
 x_values_arr = np.array(x_values)
 sns.barplot(x_labels, x_values_arr, palette = ["#CD0000", "#E60000", "#FF0000", "#FF3333", "#FF6666"])
-ax.set_xlabel("Baltimore Prozentzahl Bezirke unter Wert 50 der Verbrechensrate")
+ax.set_xlabel("Baltimore - Prozentzahl Bezirke unter Wert 50 der Verbrechensrate")
 ax.xaxis.set_label_position("top")
 
 sns.despine(bottom=True)
 plt.tight_layout()
 
 
-#Liniendiagramm Downtown ("gefährlichster" Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
+#Figur 28: Liniendiagramm Downtown ("gefährlichster" Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -1005,11 +992,11 @@ crime_values = [crime_11[13], crime_12[13], crime_13[13], crime_14[13]]
 crime_labels_arr = np.array(crime_labels)
 crime_values_arr = np.array(crime_values)
 
-sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "violet")
-sns.pointplot(prop_labels_arr, prop_values_arr, color = "green")
-sns.pointplot(viol_labels_arr, viol_values_arr, color = "blue")
-sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "orange")
-sns.pointplot(crime_labels_arr, crime_values_arr, color = "red")
+sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "#FF00FF")
+sns.pointplot(prop_labels_arr, prop_values_arr, color = "#00FF00")
+sns.pointplot(viol_labels_arr, viol_values_arr, color = "#0000FF")
+sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "#FFC800")
+sns.pointplot(crime_labels_arr, crime_values_arr, color = "#FF0000")
 ax.set_xlabel("Baltimore Downtown - gefaehrlichster Bezirk - Entwicklung")
 ax.xaxis.set_label_position("top")
 
@@ -1017,7 +1004,7 @@ sns.despine()
 plt.tight_layout()
 
 
-#Liniendiagramm Cross-Country ("sicherster" Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
+#Figur 29: Liniendiagramm Cross-Country ("sicherster" Bezirk) Auswertung 2011-2014: crime (Verbrechen), viol (Gewalt), prop (Diebstahl), domvio (Häusliche Gewalt), gunhom (Schusswaffentötung): Wie hat es sich verändert, gibt es Auffälligkeiten?
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -1046,11 +1033,11 @@ crime_values = [crime_11[10], crime_12[10], crime_13[10], crime_14[10]]
 crime_labels_arr = np.array(crime_labels)
 crime_values_arr = np.array(crime_values)
 
-sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "violet")
-sns.pointplot(prop_labels_arr, prop_values_arr, color = "green")
-sns.pointplot(viol_labels_arr, viol_values_arr, color = "blue")
-sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "orange")
-sns.pointplot(crime_labels_arr, crime_values_arr, color = "red")
+sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "#FF00FF")
+sns.pointplot(prop_labels_arr, prop_values_arr, color = "#00FF00")
+sns.pointplot(viol_labels_arr, viol_values_arr, color = "#0000FF")
+sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "#FFC800")
+sns.pointplot(crime_labels_arr, crime_values_arr, color = "#FF0000")
 ax.set_xlabel("Baltimore Cross-Country - sicherster Bezirk - Entwicklung")
 ax.xaxis.set_label_position("top")
 
@@ -1058,7 +1045,7 @@ sns.despine()
 plt.tight_layout()
 
 
-#Liniendiagramm Baltimore über Jahre 2011-2014: Durchschnittswerte crime, viol, prop, domvio, gunhom: Was hat sich wie stark verändert?
+#Figur 30: Liniendiagramm Baltimore über Jahre 2011-2014: Durchschnittswerte crime, viol, prop, domvio, gunhom: Was hat sich wie stark verändert?
 sns.set(style="white", context="talk")
 f, ax = plt.subplots(1, 1, figsize=(8, 6))
 
@@ -1087,11 +1074,11 @@ crime_values = [crime_average_2011, crime_average_2012, crime_average_2013, crim
 crime_labels_arr = np.array(crime_labels)
 crime_values_arr = np.array(crime_values)
 
-sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "violet")
-sns.pointplot(prop_labels_arr, prop_values_arr, color = "green")
-sns.pointplot(viol_labels_arr, viol_values_arr, color = "blue")
-sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "orange")
-sns.pointplot(crime_labels_arr, crime_values_arr, color = "red")
+sns.pointplot(gunhom_labels_arr, gunhom_values_arr, color = "#FF00FF")
+sns.pointplot(prop_labels_arr, prop_values_arr, color = "#00FF00")
+sns.pointplot(viol_labels_arr, viol_values_arr, color = "#0000FF")
+sns.pointplot(domvio_labels_arr, domvio_values_arr, color = "#FFC800")
+sns.pointplot(crime_labels_arr, crime_values_arr, color = "#FF0000")
 ax.set_xlabel("Baltimore - Entwicklung ueber die Jahre hinweg")
 ax.xaxis.set_label_position("top")
 
@@ -1101,4 +1088,3 @@ plt.tight_layout()
 
 
 plt.show()
-
