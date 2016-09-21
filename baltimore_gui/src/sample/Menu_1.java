@@ -18,7 +18,6 @@ public class Menu_1 extends Scene {
     private Image image;
     private Button weiter;
     private Button zurueck;
-    private Label label_ueberschrift;
     private Label label_text;
 
     VBox box;
@@ -34,18 +33,17 @@ public class Menu_1 extends Scene {
         this.image = new Image("figure_30.png");
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
-        iv1.setFitWidth(400);
-        iv1.setFitHeight(300);
-        this.label_ueberschrift = new Label("Ueberschrift!");
-        this.label_text = new Label("Test.\nTest.\nTest.");
+        iv1.setFitWidth(530);
+        iv1.setFitHeight(397);
+        this.label_text = new Label("Test.\nTest.\nTest 1.");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
-        box.setPadding(new Insets(10, 50, 50, 50)); //Abstand der GUI-Komponenten zum Rand
+        //box.setPadding(new Insets(10, 50, 50, 50)); //Abstand der GUI-Komponenten zum Rand
         box.setSpacing(15);
-        box.getChildren().addAll(iv1, label_ueberschrift, label_text, weiter, zurueck);
+        box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 
         this.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm()); //Zugriff auf CSS-Datei
 
