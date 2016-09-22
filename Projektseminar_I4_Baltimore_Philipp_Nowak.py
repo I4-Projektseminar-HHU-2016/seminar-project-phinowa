@@ -11,81 +11,10 @@ Im Folgenden befinden sich Funktionen, die für die (grafische) Auswertung benö
 def average_function(my_list):
 	list_sum = 0
 	for i in my_list:
-		list_sum += i
+		list_sum = list_sum + i
 	return list_sum/len(my_list)
-
-#Funktion 2: Top-10 der Bezirke
-def top_10_function(values, neighborhoods):
-	top_10_list = []
-	i = 0
-	while i < 10:
-		top_10_list.append(max(values)) 
-		top_10_list.append(neighborhoods[values.index(max(values))])
-		values[values.index(max(values))] = 0
-		i = i+1
-	return top_10_list
-
-#Funktion 3: Flop-10 der Bezirke
-def flop_10_function(values, neighborhoods):
-	flop_10_list = []
-	i = 0
-	while i < 10:
-		flop_10_list.append(min(values)) 
-		flop_10_list.append(neighborhoods[values.index(min(values))])
-		values[values.index(min(values))] = 100000
-		i = i+1
-	return flop_10_list
-
-#Funktion 4: Verbrechensrate der Bezirke gestiegen
-def rise_function(values_10, values_11, values_12, values_13, values_14):
-	i = 0
-	x = 0
-	rise_list = []
-	while i < len(values_10):
-		if values_10[i] - values_11[i] < 0:
-			x = x+1
-		if values_11[i] - values_12[i] < 0:
-			x = x+1
-		if values_12[i] - values_13[i] < 0:
-			x = x+1
-		if values_13[i] - values_14[i] < 0:
-			x = x+1
-		i = i+1
-		rise_list.append(x)
-		x = 0
-	return rise_list
-
-#Funktion 5: Verbrechensrate der Bezirke gesunken
-def drop_function(values_10, values_11, values_12, values_13, values_14):
-	i = 0
-	x = 0
-	drop_list = []
-	while i < len(values_10):
-		if values_10[i] - values_11[i] > 0:
-			x = x+1
-		if values_11[i] - values_12[i] > 0:
-			x = x+1
-		if values_12[i] - values_13[i] > 0:
-			x = x+1
-		if values_13[i] - values_14[i] > 0:
-			x = x+1
-		i = i+1
-		drop_list.append(x)
-		x = 0
-	return drop_list
-
-#Funktion 6: Prozentuale Veränderung berechnen
-def percentage_function(my_list_1, my_list_2):
-	i = 0
-	percentage = 0
-	percentage_list = []
-	while i < len(my_list_1):
-		percentage = int(100-((my_list_1[i]/my_list_2[i])*100))
-		i = i+1
-		percentage_list.append(percentage)
-	return percentage_list
-
-#Funktion 7: Median berechnen
+	
+#Funktion 2: Median berechnen
 def median_function(my_list):
 	my_list_len = len(my_list)
 	sorted_list = sorted(my_list)
@@ -95,36 +24,36 @@ def median_function(my_list):
 	else:
 		return (sorted_list[median_index] + sorted_list[median_index + 1]) / 2
 
-#Funktion 8: Modalwert berechnen
+#Funktion 3: Modalwert berechnen
 def modal_value_function(my_list):
 	list_modal = max(set(my_list), key=my_list.count)
 	return list_modal
 
-#Funktion 9: Varianz berechnen
+#Funktion 4: Varianz berechnen
 def variance_function(my_list):
 	list_sum = 0
 	for i in my_list:
-		list_sum += i
+		list_sum = list_sum + i
 	average = list_sum/len(my_list)
 	variance = sum(((i - average)**2 for i in my_list)) / (len(my_list) - 1)
 	return variance
 
-#Funktion 10: Standardabweichung berechnen
+#Funktion 5: Standardabweichung berechnen
 def standard_deviation_function(my_list):
 	list_sum = 0
 	for i in my_list:
-		list_sum += i
+		list_sum = list_sum + i
 	average = list_sum/len(my_list)
 	variance = sum(((i - average)**2 for i in my_list)) / (len(my_list) - 1)
 	standard_deviation = variance**(0.5)
 	return standard_deviation
 
-#Funktion 11: Spannweite berechnen
+#Funktion 6: Spannweite berechnen
 def span_function(my_list):
 	span = max(my_list) - min(my_list)
 	return span
 
-#Funktion 12: Prozentzahl der Werte einer Liste unter Wert "50" berechnen
+#Funktion 7: Prozentzahl der Werte einer Liste unter Wert "50" berechnen
 def percent_list_50_function(my_list):
 	length_list = 0
 	counter = 0.0
@@ -135,6 +64,77 @@ def percent_list_50_function(my_list):
 			length_list = length_list+1
 	counter_percent = (counter / (len(my_list)))*100
 	return counter_percent
+
+#Funktion 8: Top-10 der Bezirke
+def top_10_function(values, neighborhoods):
+	top_10_list = []
+	i = 0
+	while i < 10:
+		top_10_list.append(max(values)) 
+		top_10_list.append(neighborhoods[values.index(max(values))])
+		values[values.index(max(values))] = 0
+		i = i + 1
+	return top_10_list
+
+#Funktion 9: Flop-10 der Bezirke
+def flop_10_function(values, neighborhoods):
+	flop_10_list = []
+	i = 0
+	while i < 10:
+		flop_10_list.append(min(values)) 
+		flop_10_list.append(neighborhoods[values.index(min(values))])
+		values[values.index(min(values))] = 100000
+		i = i + 1
+	return flop_10_list
+
+#Funktion 10: Verbrechensrate der Bezirke gestiegen
+def rise_function(values_10, values_11, values_12, values_13, values_14):
+	i = 0
+	x = 0
+	rise_list = []
+	while i < len(values_10):
+		if values_10[i] - values_11[i] < 0:
+			x = x + 1
+		if values_11[i] - values_12[i] < 0:
+			x = x + 1
+		if values_12[i] - values_13[i] < 0:
+			x = x + 1
+		if values_13[i] - values_14[i] < 0:
+			x = x + 1
+		i = i + 1
+		rise_list.append(x)
+		x = 0
+	return rise_list
+
+#Funktion 11: Verbrechensrate der Bezirke gesunken
+def drop_function(values_10, values_11, values_12, values_13, values_14):
+	i = 0
+	x = 0
+	drop_list = []
+	while i < len(values_10):
+		if values_10[i] - values_11[i] > 0:
+			x = x + 1
+		if values_11[i] - values_12[i] > 0:
+			x = x + 1
+		if values_12[i] - values_13[i] > 0:
+			x = x + 1
+		if values_13[i] - values_14[i] > 0:
+			x = x + 1
+		i = i+1
+		drop_list.append(x)
+		x = 0
+	return drop_list
+
+#Funktion 12: Prozentuale Veränderung berechnen
+def percentage_function(my_list_1, my_list_2):
+	i = 0
+	percentage = 0
+	percentage_list = []
+	while i < len(my_list_1):
+		percentage = int(100-((my_list_1[i]/my_list_2[i])*100))
+		i = i + 1
+		percentage_list.append(percentage)
+	return percentage_list
 
 
 #Listen definieren
