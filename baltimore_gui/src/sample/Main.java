@@ -31,6 +31,7 @@ public class Main extends Application {
     private void initialize(){
         Master master = Master.getInstance();
         master.setMenu(new Menu(new GridPane(), width, height));
+        master.setMenu_einleitung(new Menu_einleitung(new VBox(), width, height));
         master.setMenu_1(new Menu_1(new VBox(), width, height));
         master.setMenu_2(new Menu_2(new VBox(), width, height));
         master.setMenu_3(new Menu_3(new VBox(), width, height));

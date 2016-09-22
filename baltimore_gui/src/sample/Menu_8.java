@@ -3,6 +3,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,12 +35,13 @@ public class Menu_8 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(794);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Test.\nTest.\nTest 8.");
+        this.label_text = new Label("Eine sehr grosse Auffaelligkeit: Downtown hat 2010 mit einem Kriminalitaetswert von ueber 420 einen riesigen Vorsprung auf\nInner Harbor mit ca. 160 und den restlichen Bezirken in den Top 10, die sich rund um den Wert 100 tummeln.\n ");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
+        box.setPadding(new Insets(0, 50, 0, 50)); //Abstand der GUI-Komponenten zum Rand (top/right/bottom/left)
         box.setSpacing(15);
         box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 

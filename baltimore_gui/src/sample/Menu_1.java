@@ -35,13 +35,13 @@ public class Menu_1 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(530);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Test.\nTest.\nTest 1.");
+        this.label_text = new Label("Der Durchschnitt der Kriminalitaetsrate aller Bezirke in Baltimore schwankt zwar von Jahr zu Jahr nach oben und unten, trotzdem ist\ninsgesamt eine leichte Senkung vom Ausgangswert 68 von 2010 bis hin zu ca. 64 im aktuellsten Jahr 2014 zu erkennen.\n ");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
-        //box.setPadding(new Insets(10, 50, 50, 50)); //Abstand der GUI-Komponenten zum Rand
+        box.setPadding(new Insets(0, 50, 0, 50)); //Abstand der GUI-Komponenten zum Rand (top/right/bottom/left)
         box.setSpacing(15);
         box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 
@@ -56,7 +56,7 @@ public class Menu_1 extends Scene {
         });
         zurueck.setOnAction(new EventHandler<ActionEvent>()  {
             public void handle(ActionEvent event ) {
-                Main.stage.setScene(Master.getInstance().getMenu());
+                Main.stage.setScene(Master.getInstance().getMenu_einleitung());
             }
         });
 

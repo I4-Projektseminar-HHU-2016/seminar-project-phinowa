@@ -56,7 +56,7 @@ public class Menu extends Scene{
         //Registrierung von Listenern
         this.start.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
-                Main.stage.setScene(Master.getInstance().getMenu_1());
+                Main.stage.setScene(Master.getInstance().getMenu_einleitung());
             }
         });
         this.exit.setOnAction(new EventHandler<ActionEvent>() {

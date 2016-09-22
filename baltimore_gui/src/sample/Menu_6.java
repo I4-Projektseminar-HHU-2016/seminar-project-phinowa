@@ -3,6 +3,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,12 +35,13 @@ public class Menu_6 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(530);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Test.\nTest.\nTest 6.");
+        this.label_text = new Label("Mithilfe der Spannweite stellen wir fest, dass der Abstand des kleinsten und groessten Werts der Kriminalitaetsrate\nimmer kleiner wird. Der Verlauf ist quasi identisch mit dem der Standardabweichung. Es liegt also nahe, dass\nfuer die Angleichung an den Mittelwert hauptsaechlich die Bezirke mit Extremwerten verantwortlich sind.");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
+        box.setPadding(new Insets(0, 50, 0, 50)); //Abstand der GUI-Komponenten zum Rand (top/right/bottom/left)
         box.setSpacing(15);
         box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 

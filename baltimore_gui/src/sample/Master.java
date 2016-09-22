@@ -6,6 +6,7 @@ public class Master {
     private static Master instance;
 
     private Menu menu;
+    private Menu_einleitung menu_einleitung;
     private Menu_1 menu_1;
     private Menu_2 menu_2;
     private Menu_3 menu_3;
@@ -50,6 +51,15 @@ public class Master {
 
     public void setMenu(Menu menu) {
         this.menu = menu;
+    }
+
+
+    public Menu_einleitung getMenu_einleitung() {
+        return menu_einleitung;
+    }
+
+    public void setMenu_einleitung(Menu_einleitung menu_einleitung) {
+        this.menu_einleitung = menu_einleitung;
     }
 
 
