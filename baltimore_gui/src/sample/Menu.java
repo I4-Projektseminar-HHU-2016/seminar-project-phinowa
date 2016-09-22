@@ -8,7 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 
 public class Menu extends Scene{
@@ -33,6 +33,9 @@ public class Menu extends Scene{
         this.start = new Button("Start");
         this.exit = new Button("Beenden");
         this.master = Master.getInstance();
+
+        //ID fuer Hintergrundbild, das in CSS-Datei eingelesen wird
+        box.setId("start_menu_box");
 
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(10, 50, 50, 50)); //Abstand der GUI-Komponenten zum Rand

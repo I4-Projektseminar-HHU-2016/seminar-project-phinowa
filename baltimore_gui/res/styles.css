@@ -1,1 +1,19 @@
-/* CSS */
+/* Root: Gilt allgemein */
+.root{
+    -fx-font-size: 12pt;
+    -fx-font-family: "Calibri";
+    -fx-background-color: #FFFFFF;
+}
+
+/* Einstellung fuer Buttons */
+.button{
+    -fx-color: #2E2E2E;
+    -fx-focus-color: #2E2E2E;
+}
+
+/*Einstellung fuer Hintergrundbild-ID von Menu.java*/
+#start_menu_box{
+   -fx-background-image: url('baltimore-inner-harbor-calvert-koerber.png');
+   -fx-background-repeat: stretch;
+   -fx-background-position: center;
+}
