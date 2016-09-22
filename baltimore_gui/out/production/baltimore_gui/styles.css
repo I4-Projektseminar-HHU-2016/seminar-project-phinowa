@@ -1,1 +1,6 @@
-/* CSS */
+/* Root: Gilt allgemein */
+.root{
+    -fx-font-size: 12pt;
+    -fx-font-family: "Calibri";
+    -fx-background-color: #FFFFFF;
+}

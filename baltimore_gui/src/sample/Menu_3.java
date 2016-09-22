@@ -29,7 +29,7 @@ public class Menu_3 extends Scene {
         this.box = box;
         this.width = width;
         this.height = height;
-        this.image = new Image("figure_30.png");
+        this.image = new Image("figure_23.png");
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
         iv1.setFitWidth(530);

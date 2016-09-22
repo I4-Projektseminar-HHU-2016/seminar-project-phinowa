@@ -29,10 +29,10 @@ public class Menu_24 extends Scene {
         this.box = box;
         this.width = width;
         this.height = height;
-        this.image = new Image("figure_30.png");
+        this.image = new Image("figure_14.png");
         ImageView iv1 = new ImageView();
         iv1.setImage(image);
-        iv1.setFitWidth(530);
+        iv1.setFitWidth(794);
         iv1.setFitHeight(397);
         this.label_text = new Label("Test.\nTest.\nTest 24.");
         this.weiter = new Button("Weiter");
