@@ -17,3 +17,9 @@
    -fx-background-repeat: stretch;
    -fx-background-position: center;
 }
+
+/*Einstellung fuer Ueberschrift von Menu.java*/
+#ueberschrift_start_menu{
+    -fx-font-size: 26pt;
+    -fx-font-weight: bold;
+}

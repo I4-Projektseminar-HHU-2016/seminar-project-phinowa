@@ -3,12 +3,12 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
 
 
 public class Menu extends Scene{
@@ -18,29 +18,37 @@ public class Menu extends Scene{
     private Label label_ueberschrift;
     private Label label_text;
 
-    VBox box;
+    GridPane grid;
     int width, height;
 
     Master master;
 
-    public Menu(VBox box, int width, int height){
-        super(box,width,height);
-        this.box = box;
+    public Menu(GridPane grid, int width, int height){
+        super(grid,width,height);
+        this.grid = grid;
         this.width = width;
         this.height = height;
-        this.label_ueberschrift = new Label("Ueberschrift!");
-        this.label_text = new Label("Test.\nTest.\nTest.");
+        this.label_ueberschrift = new Label("Verbrechen in Baltimore");
+        this.label_text = new Label("Eine Auswertung von Philipp Nowak.");
         this.start = new Button("Start");
         this.exit = new Button("Beenden");
         this.master = Master.getInstance();
 
         //ID fuer Hintergrundbild, das in CSS-Datei eingelesen wird
-        box.setId("start_menu_box");
+        grid.setId("start_menu_box");
+        //ID fuer Ueberschrift, die in CSS-Datei eingelesen wird
+        label_ueberschrift.setId("ueberschrift_start_menu");
 
-        box.setAlignment(Pos.CENTER);
-        box.setPadding(new Insets(10, 50, 50, 50)); //Abstand der GUI-Komponenten zum Rand
-        box.setSpacing(15);
-        box.getChildren().addAll(label_ueberschrift, label_text, start, exit);
+        //Ordnen von Komponenten (Layout) bei Menue
+        grid.setVgap(10);                     //Platz vertikal zwischen Komponenten lassen.
+        grid.setHalignment(start, HPos.CENTER);
+        grid.setHalignment(exit, HPos.RIGHT);
+        grid.setPadding(new Insets(30, 50, 50, 300));   //Abstand der GUI-Komponenten zur GridPane
+        grid.add(label_ueberschrift, 0, 0);             //GUI-Komponente, Zeile, Spalte...
+        grid.add(label_text, 0, 1);
+        grid.add(start, 0, 8);
+        grid.add(exit, 0, 8);
+        grid.setGridLinesVisible(false); //true: zur Selbstueberpruefung der Linien
 
         this.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm()); //Zugriff auf CSS-Datei
 
