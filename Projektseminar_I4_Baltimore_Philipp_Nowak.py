@@ -66,6 +66,7 @@ def percent_list_50_function(my_list):
 	return counter_percent
 
 #Funktion 8: Top-10 der Bezirke
+#In Zusammenarbeit entwickelt mit Karoline Jüttner
 def top_10_function(values, neighborhoods):
 	top_10_list = []
 	i = 0
@@ -77,6 +78,7 @@ def top_10_function(values, neighborhoods):
 	return top_10_list
 
 #Funktion 9: Flop-10 der Bezirke
+#In Zusammenarbeit entwickelt mit Karoline Jüttner
 def flop_10_function(values, neighborhoods):
 	flop_10_list = []
 	i = 0

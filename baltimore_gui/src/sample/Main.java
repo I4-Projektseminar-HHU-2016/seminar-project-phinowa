@@ -63,5 +63,6 @@ public class Main extends Application {
         master.setMenu_29(new Menu_29(new VBox(), width, height));
         master.setMenu_30(new Menu_30(new VBox(), width, height));
         master.setMenu_fazit(new Menu_fazit(new VBox(), width, height));
+        master.setMenu_fazit_2(new Menu_fazit_2(new VBox(), width, height));
     }
 }

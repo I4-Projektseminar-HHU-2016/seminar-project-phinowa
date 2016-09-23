@@ -35,7 +35,7 @@ public class Menu_10 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(794);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Downtown liegt 2012 zwar immer noch mit riesigem Abstand vorne, ist aber im Vergleich zu 2010 fast 100 Punkte, von 420 auf 330,\nlosgeworden. Harbor East hat auf Platz 2 liegend ebenfalls an Kriminalitaetsrate verloren. In den Top 10 liegen nun mehr Bezirke\nbei einem Wert von unter 100 als vorher.");
+        this.label_text = new Label("Downtown liegt 2012 zwar immer noch mit riesigem Abstand vorne, ist aber im Vergleich zu 2010 fast 100 Punkte, von 420 auf 330,\nlosgeworden. Inner Harbor hat jetzt auf Platz 5 liegend ebenfalls an Kriminalitaetsrate verloren. In den Top 10 liegen nun mehr\nBezirke bei einem Wert von unter 100 als vorher.");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();

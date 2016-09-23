@@ -35,7 +35,7 @@ public class Menu_2 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(530);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Der Verlauf des Median verhaelt sich aehnlich wie der Durchschnitt, bloss dass 2011 ein deutlicher Ausschlag nach oben zu erkennen ist.\nInsgesamt liegt der Median jeweils etwa 10 Punkte ueber dem Durchschnittswert der Kriminalitaetsrate.\n ");
+        this.label_text = new Label("Der Verlauf des Medians verhaelt sich aehnlich wie der Durchschnitt, bloss dass 2011 ein deutlicher Ausschlag nach oben zu erkennen ist.\nInsgesamt liegt der Median jeweils etwa 10 Punkte unter dem Durchschnittswert der Kriminalitaetsrate.\n ");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
