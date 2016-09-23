@@ -3,6 +3,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,12 +35,13 @@ public class Menu_29 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(530);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Test.\nTest.\nTest 29.");
+        this.label_text = new Label("Beim Vorzeigebezirk Cross-Country ist die Entwicklung abgesehen von dem Ausreisser im Jahr 2013 bei der Kriminalitaetsrate und\nDiebstahlrate insgesamt positiv. Ueberraschen tut 2012 jedoch die leichte Tendenz nach oben bezueglich haeuslicher Gewalt.\n ");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
+        box.setPadding(new Insets(0, 50, 0, 50)); //Abstand der GUI-Komponenten zum Rand (top/right/bottom/left)
         box.setSpacing(15);
         box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 

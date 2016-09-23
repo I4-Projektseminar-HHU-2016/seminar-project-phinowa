@@ -37,6 +37,7 @@ public class Master {
     private Menu_28 menu_28;
     private Menu_29 menu_29;
     private Menu_30 menu_30;
+    private Menu_fazit menu_fazit;
 
     public static Master getInstance() {
         if (instance == null) {
@@ -330,6 +331,15 @@ public class Master {
 
     public void setMenu_30(Menu_30 menu_30) {
         this.menu_30 = menu_30;
+    }
+
+
+    public Menu_fazit getMenu_fazit() {
+        return menu_fazit;
+    }
+
+    public void setMenu_fazit(Menu_fazit menu_fazit) {
+        this.menu_fazit = menu_fazit;
     }
 
 

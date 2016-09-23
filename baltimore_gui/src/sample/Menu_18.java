@@ -3,6 +3,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,12 +35,13 @@ public class Menu_18 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(794);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Test.\nTest.\nTest 18.");
+        this.label_text = new Label("Southeastern, in keiner Liste einer Top 10 zu finden, weisst mit 30% die groesste Steigerung der Kriminalitaetsrate im Vergleich von\n2010 zu 2014 auf. Negative prozentuale Entwicklung: South Baltimore, Beechfield, Loch Raven und Edmondson Village\n(ehemals drittsicherster Bezirk) fanden sich 2010 noch unter den zehn sichersten Bezirken wieder, inzwischen teilweise nicht mehr.");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
+        box.setPadding(new Insets(0, 50, 0, 50)); //Abstand der GUI-Komponenten zum Rand (top/right/bottom/left)
         box.setSpacing(15);
         box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 

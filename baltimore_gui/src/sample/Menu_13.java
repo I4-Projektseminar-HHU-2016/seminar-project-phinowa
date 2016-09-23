@@ -3,6 +3,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,12 +35,13 @@ public class Menu_13 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(794);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Test.\nTest.\nTest 13.");
+        this.label_text = new Label("Cross-Country hat ueber die Jahre hinweg eine stabile, niedrige Kriminalitaetsrate. North Baltimore, die Jahre vorher Platz 2,\nhat zugelegt. Dickeyville hingegen war 2010 nicht in der Liste und befindet sich jetzt auf Platz 3. Insgesamt liegen nur noch\nfuenf Bezirke bei einem Wert von unter 40, 2010 waren es noch acht.");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
+        box.setPadding(new Insets(0, 50, 0, 50)); //Abstand der GUI-Komponenten zum Rand (top/right/bottom/left)
         box.setSpacing(15);
         box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 

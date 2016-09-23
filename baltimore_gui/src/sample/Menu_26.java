@@ -3,6 +3,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,12 +35,13 @@ public class Menu_26 extends Scene {
         iv1.setImage(image);
         iv1.setFitWidth(530);
         iv1.setFitHeight(397);
-        this.label_text = new Label("Test.\nTest.\nTest 26.");
+        this.label_text = new Label("Da Downtown die Jahre ueber die hoechste Diebstahlrate vorzuweisen hatte, zeigt dieses Diagramm wieder dessen Verlauf. Nach einer\nzunaechst wieder einmal starken positiven Entwicklung ist ueberraschenderweise von 2013 auf 2014 eine kleine Steigerung vorhanden.\n ");
         this.weiter = new Button("Weiter");
         this.zurueck = new Button("Zurueck");
         this.master = Master.getInstance();
 
         box.setAlignment(Pos.CENTER);
+        box.setPadding(new Insets(0, 50, 0, 50)); //Abstand der GUI-Komponenten zum Rand (top/right/bottom/left)
         box.setSpacing(15);
         box.getChildren().addAll(iv1, label_text, weiter, zurueck);
 
