@@ -15,15 +15,15 @@
 </h2>
 <ul class="contains-task-list">
 	<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Python-Datei, mit der die Diagramme für die Auswertung erstellt wurden</li>
-	<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Ausführbare JAR-Datei, mit der sich die Benutzeroberfläche öffnet</li>
+	<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Ausführbare JAR-Datei für die Benutzeroberfläche</li>
 	<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> In dieser befindet sich eine Einleitung, eine ausführliche Analyse mithilfe der erstellten Diagramme und ein Fazit inklusive geografischer Hintergrundrecherche</li>
 </ul>
 <h2>
 	Los geht's
 </h2>
 <p>
-	Die Benutzeroberfläche liegt als JAR-Datei vor, weshalb zum Starten Java auf dem Rechner installiert sein sollte.<br><br>
-	Wer sich die für die Auswertung erstellten Diagramme ausgeben lassen möchte, benötigt Python 2. Da die Diagramme mit Seaborn erstellt wurden, muss dieses vorher in cmd mit folgendem Befehl installiert werden.
+	Die Benutzeroberfläche liegt als JAR-Datei vor, weshalb zum Starten <a href="https://www.java.com/de/download/">Java</a> auf dem Rechner installiert sein sollte.<br><br>
+	Wer sich die für die Auswertung erstellten Diagramme ausgeben lassen möchte, benötigt <a href="https://www.python.org/downloads/">Python 2</a>. Da die Diagramme mit Seaborn erstellt wurden, muss dieses vorher in cmd mit folgendem Befehl installiert werden.
 </p>
 <pre><code>pip install seaborn</code></pre>
 <p>
@@ -33,7 +33,7 @@
 	Entwicklung
 </h2>
 <p>
-	Das Zeichnen der Diagramme wurde mit dem Editor Geany und der Programmiersprache Python durchgeführt, für die Benutzeroberfläche wurde IntelliJ IDEA und die Programmiersprache Java verwendet.
+	Das Zeichnen der Diagramme wurde mit dem Editor <a href="https://www.geany.org/">Geany</a> und der Programmiersprache Python durchgeführt, für die Benutzeroberfläche wurde <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> und die Programmiersprache Java verwendet.
 	<br><br>
 	Philipp Nowak.
 </p>
