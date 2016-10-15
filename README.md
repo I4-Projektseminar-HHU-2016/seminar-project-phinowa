@@ -1,39 +1,42 @@
-<h1>
-	Verbrechen in Baltimore
-</h1>
-<p>
-	Eine Analyse der Entwicklung der Sicherheitslage in Baltimore.<br><br>
-	Grundlage für das Projekt ist eine <a href="http://catalog.data.gov/dataset/crime-safety-2010-2013">CSV-Datei</a> der US-Regierung, die Auskunft
-	über die Kriminalitätsrate und verschiedene Verbrechen wie Gewalt, Diebstahl,
-	häusliche Gewalt und Schusswaffentötung in sämtlichen Bezirken von Baltimore gibt.
-	<br>Die 620.000 Einwohner umfassende Ostküstenstadt der USA „hat unter den US-amerikanischen
-	Großstädten am stärksten mit Armut, Verwahrlosung, Drogenabhängigkeit und Suburbanisierung
-	zu kämpfen“ (wikipedia.de, o.S.) und ist für diese Untersuchung deshalb besonders interessant.
-</p>
-<h2>
-	Features
-</h2>
-<ul class="contains-task-list">
-	<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Python-Datei, mit der die Diagramme für die Auswertung erstellt wurden</li>
-	<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Ausführbare JAR-Datei für die Benutzeroberfläche</li>
-	<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> In dieser befindet sich eine Einleitung, eine ausführliche Analyse mithilfe der erstellten Diagramme und ein Fazit inklusive geografischer Hintergrundrecherche</li>
-</ul>
-<h2>
-	Los geht's
-</h2>
-<p>
-	Die Benutzeroberfläche liegt als JAR-Datei vor, weshalb zum Starten <a href="https://www.java.com/de/download/">Java</a> auf dem Rechner installiert sein sollte.<br><br>
-	Wer sich die für die Auswertung erstellten Diagramme ausgeben lassen möchte, benötigt <a href="https://www.python.org/downloads/">Python 2</a>. Da die Diagramme mit Seaborn erstellt wurden, muss dieses vorher in cmd mit folgendem Befehl installiert werden.
-</p>
-<pre><code>pip install seaborn</code></pre>
-<p>
-	Starten lässt sich die Python-Datei dann beispielsweise per Öffnen mit Geany und der Aktion "Ausführen".
-</p>
-<h2>
-	Entwicklung
-</h2>
-<p>
-	Das Zeichnen der Diagramme wurde mit dem Editor <a href="https://www.geany.org/">Geany</a> und der Programmiersprache Python durchgeführt, für die Benutzeroberfläche wurde <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> und die Programmiersprache Java verwendet.
-	<br><br>
-	Philipp Nowak.
-</p>
+# Crime in Baltimore
+
+An analysis of the development of security situation in Baltimore, Maryland.
+The project is based on a [CSV file](http://catalog.data.gov/dataset/crime-safety-2010-2013) from the US government which provides information about the crime rate and several crimes like violence, robbery, domestic violence and gun homicide in all neighborhoods of Baltimore.
+The US metropolis with 620.000 inhabitants "suffers the most from poverty, dilapidation, drug addiction and suburbanisation beyond the US American cities" (wikipedia.de) so it's particularly interesting for this survey.
+
+## Features ##
+
+- [x] Python file which was needed to generate the diagrams for the evaluation
+- [x] Executable JAR file for the graphical user interface
+- [x] The GUI contains an introduction, a detailed analysis based on the diagrams and a conclusion including geographical background research
+
+## Getting Started
+
+The user interface exists as JAR file, so [Java](https://www.java.com/de/download/) should be installed to start the program.
+To output the diagrams [Python 2](https://www.python.org/downloads/) is needed. The diagrams have been created with Seaborn so it has to be installed in cmd with the following command.
+
+```
+pip install seaborn
+```
+
+You can start the Python file by using text editors like Geany and clicking on the button "Run".
+
+## Versioning
+
+No kind of versioning has been used.
+
+## Authors
+
+* **Philipp Nowak** - [phinowa](https://github.com/phinowa)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Acknowledgments
+
+* A specific function in the python file was made in cooperation with [Karoline Jüttner](https://github.com/kajue101) 
+* Programming language Python and text editor [Geany](https://www.geany.org/) have been used to create the diagrams
+* Programming language Java and development environment [IntelliJ IDEA](https://www.jetbrains.com/idea/) have been used to create the graphical user interface
+
+*template inspired by [https://gist.github.com/PurpleBooth/109311bb0361f32d87a2](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)*
