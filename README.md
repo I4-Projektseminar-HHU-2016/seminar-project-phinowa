@@ -13,13 +13,17 @@ The US metropolis with 620.000 inhabitants "suffers the most from poverty, dilap
 ## Getting Started
 
 The user interface exists as JAR file, so [Java](https://www.java.com/de/download/) should be installed to start the program.
-To output the diagrams [Python 2](https://www.python.org/downloads/) is needed. The diagrams have been created with Seaborn so it has to be installed in cmd with the following command.
+To output the diagrams [Python 2](https://www.python.org/downloads/) is needed. The diagrams have been created with Seaborn so it has to be installed in the command prompt with the following command.
 
 ```
 pip install seaborn
 ```
 
-You can start the Python file by using text editors like Geany and clicking on the button "Run".
+You can start the Python file by the following command in the command prompt:
+
+```
+python Projektseminar_I4_Baltimore_Philipp_Nowak.py
+```
 
 ## Versioning
 
